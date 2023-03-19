@@ -1,4 +1,5 @@
 
+
 require('dotenv').config()
 
 // DB CONNECTIONS
@@ -17,3 +18,4 @@ const port = process.env.PORT || 8000;
 app.listen(port, ()=> {
     console.log(`app is running at port ${port}`)
 })
+
