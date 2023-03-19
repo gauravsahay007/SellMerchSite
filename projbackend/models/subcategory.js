@@ -6,8 +6,7 @@ const subCategorySchema=new mongoose.Schema(
             unique:true,
             trim:true,
             maxlength:32,
-            required:true,
-            ref:"subCategory"
+            required:true
         }
     },
     {
