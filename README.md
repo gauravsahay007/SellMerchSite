@@ -2,7 +2,7 @@
 BACKEND PROJECT
 ## Name of Package and there commands
 
-| ***Package Name*** |*** Installing Command *** |
+| ***Package Name*** |***Installing Command*** |
 |    :--:      |     :--:           |
 |package.json           |  npm init                  |
 |     express         |     "npm i express"                |
