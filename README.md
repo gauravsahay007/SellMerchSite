@@ -4,7 +4,7 @@ BACKEND PROJECT
 
 | ***Package Name*** |***Installing Command*** |
 |    :--:      |     :--:           |
-|package.json           |  npm init                  |
+|package.json           |  "npm init"                  |
 |     express         |     "npm i express"                |
 |    express-jwt          |   "npm i express-jwt"                  |
 |     express-validator         |    "npm i express-validator"                 |
