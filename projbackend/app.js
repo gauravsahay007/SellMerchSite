@@ -26,11 +26,12 @@ app.use(cors());
 
 // My Routes
 const authRoutes = require("./routes/auth");
-
-
+const categoryRoutes=require("./routes/category");
+const userRoutes=require("./routes/user");
 // my routes
 app.use("/api", authRoutes);
-
+app.use("/api",categoryRoutes);
+app.use("/api",userRoutes);
 mongoose.connect(process.env.DATABASE,{
 }).then(()=>{
     console.log("DB Connected")

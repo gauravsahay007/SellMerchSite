@@ -127,6 +127,36 @@ exports.signup = (req,res) =>{
 
         // expressJwt automatically verifies the token
     })
+    //Creating a middleware to check if the user is authorized or not
+    // a boolean value that indicates whether the current user is authenticated (logged in).
+    exports.isAuthenticated=(req,res,next)=>{
+        //check if the the user or profile who has requested is valid or not
+        //and check if the existing user's id and the user who is trying to log in 
+        //both id's are same or not
+        const check=req.profile && req.auth && req.profile._id==req.auth._id;
+        //if it returns false then return error status 403
+        // JSON status code 403 :- 403—Forbidden; The account associated with the project that owns the bucket or object has been disabled.
+        if(check==false){
+            return res.status(403).json({
+                error:"User doesn't exist: Access Denied"
+            })
+        }
+        //calling next() callback function
+        next();
+    }
+
+
+    //creating a middleware to check if the user is admin or not 
+    exports.isAdmin=(req,res,next)=>{
+        //check if the role of the user profile is 1 then he/she is admin otherwise he/she is not an admin
+        if(req.profile.role==0){
+            return res.status(403).json({
+                error: "You are not an admin"
+            })
+        }
+      
+        next();
+    };
 
 
     
