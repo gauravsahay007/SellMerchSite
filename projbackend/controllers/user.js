@@ -8,18 +8,17 @@ const User=require("../models/user");
 // It is a middleware that have access to request object(req)
 // repspond object(res) and call next function(next)
 // id is the parameter passed 
-exports.getUserById=(req,res,next,id)=>{
 //all the documents are unique with an unique (_id) field path that MongoDB uses to automatically create a new document.
 //It uses the method findById() to find a document with an unique Id
 //syntax:- model.findById(id)
 //model:-collection name to find document that match that specified Id
 //id:- unique id of document we wish to find
 //callback:- the method findById() can also execute a callback function to handle an error or do something with the document after it has been returned.
-User.findById(id).exec((err,user)=>{
-//check if there is any error or it's not the existing userId    
-if(err || !user){
-//return a json response
+//check if there is any error or it's not the existing userId else return a json response
 //The 400 Bad request status code indicates that the server was unable to process the request due to invalid information sent by the client.    
+exports.getUserById=(req,res,next,id)=>{
+User.findById(id).exec((err,user)=>{
+if(err || !user){
     return res.status(400).json({
         error:"Oops...There is not any user of this id in the database"
     });
@@ -37,25 +36,25 @@ next();
 //eliminating some encrypted data to be flashed on user screen
 //getuser is a callback function to recieve request and return response
 //
-exports.getUser=(req,res)=>{
 //A cryptographic salt is made up of random bits added to each password instance before its hashing
 //Salting is a process that strengthens file encryption and hashes, making them more difficult to break
 //undefined will eliminate password related fields before sending the user object
+exports.getUser=(req,res)=>{
     req.profile.salt = undefined;
     req.profile.encry_password=undefined;
     return res.json(req.profile);
 };
 
 //updating user information
-exports.updateUser=(req,res)=>{
 //This function is used for performing the update operation to our database by making use of the id of the particular document. This function mainly takes 2 compulsory arguments, the first one is the id and the second one is the actual update data.
 //syntax:- findUserByIdAndUpdate(id,data_to_be_updated)
+//accessing id
+//The $set operator replaces the value of a field with the specified value.
+exports.updateUser=(req,res)=>{
 User.findByIdAndUpdate(
-    //accessing id
     {_id: req.profile._id},
-    //The $set operator replaces the value of a field with the specified value.
     {$set: req.body},
-    //
+    
     { new: true, useFindAndModify: false },
     (err,user)=>{
         if(err){
@@ -63,7 +62,7 @@ User.findByIdAndUpdate(
                 error: "You are not authorized to update this user"
             })
         }
-        //
+        
         user.salt=undefined;
         user.encry_password=undefined;
         res.json(user);
