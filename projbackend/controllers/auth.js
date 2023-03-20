@@ -1,3 +1,8 @@
+
+//importing userSchema model for authorization
+const User=require("../models/user")
+const {check,validationResult}=require("express-validator");
+
 // Importing user model
 const User = require("../models/user");
 
@@ -107,6 +112,3 @@ exports.signup = (req,res) =>{
         })
     }
 
-
-    
-    
