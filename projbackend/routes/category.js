@@ -18,7 +18,6 @@ router.get("/category/:categoryId",getCategory);
 router.get("/categories",getAllcategory)
 
 // remove
-// TODO: remove not working
 router.delete("/category/:categoryId/:userId",isSignedIn,isAuthenticated,isAdmin,removeCategory)
 
 // update

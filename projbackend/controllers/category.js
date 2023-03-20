@@ -49,10 +49,20 @@ exports.getCategory=(req,res)=>{
     return res.json(req.category);
 }
 
-// TODO: remove() depricated dont know how to remove now
+
 exports.removeCategory=(req,res)=>{
-    const category = req.profile;
-    category.deleteOne();
+    const category = req.category;
+    category.remove((err,category) => {
+        if (err){
+            res.status(400).json({
+                error: "Failed to delete this Category"
+            });
+        }
+
+        res.json({
+            message: "Successfully deleted "
+        })
+     })
     
 }
 
