@@ -1,18 +1,15 @@
 # SellMerchSite
 BACKEND PROJECT
 ## Name of Package and there commands
-package-lock.json file <br/> npm install
 
-package.json<br/> npm init
+| ***Package Name*** |***Installing Command*** |
+|    :--:      |     :--:           |
+|package.json           |  "npm init"                  |
+|     express         |     "npm i express"                |
+|    express-jwt          |   "npm i express-jwt"                  |
+|     express-validator         |    "npm i express-validator"                 |
+|     formidable         |              "npm i formidable"       |
+|    jsonwebtoken          |    "npm i jsonwebtoken"                 |
+|     mongoose         |        "npm i mongoose"             |
 
-express<br/> "npm i express"
 
-express-jwt<br/> "npm i express-jwt"
-
-express-validator<br/> "npm i express-validator"
-
-formidable<br/>"npm i formidable"
-
-jsonwebtoken<br/> "npm i jsonwebtoken"
-
-mongoose<br/>"npm i mongoose"

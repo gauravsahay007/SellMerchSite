@@ -56,15 +56,26 @@ var userSchema = new Schema({
 // creating and exporting model User
 model.exports = mongoose.model("User",userSchema);
 
-// creating a method to encrpt password
-const securePassword = (plainpassword) => {
-    if(!plainpassword) return "";
 
-    // HMAC(Hash Based Authentication Code) process to apply a hash algorithm to both data
-    // in this case data is password and secret key which is salt
-    // Hash procedurally and deterministically generated from some arbitrary block of source data
-    return crypto.createHmac('sha256',this.salt).update(plainpassword).digest('hex');
+// Custom methods
+userSchema.methods={
+    authenticate: function(plainpassword){
+        return this.securePassword(plainpassword) === this.encry_password
+    },
+    // creating a method securePassword() to encrpt password
+     securePassword : function(plainpassword){
+        if(!plainpassword) return "";
+    
+        // HMAC(Hash Based Authentication Code) process to apply a hash algorithm to both data
+        // in this case data is password and secret key which is salt
+        // Hash procedurally and deterministically generated from some arbitrary block of source data
+        try{return crypto.createHmac('sha256',this.salt).update(plainpassword).digest('hex')}
+        catch(err){
+
+        }
+    }
 }
+
 
 // creating virtual field to store password
 userSchema.virtual("password")
