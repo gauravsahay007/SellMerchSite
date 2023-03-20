@@ -10,7 +10,17 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 // Parsers 
+
+// npm module bodyparser is an npm module used to process data sent in an HTTP request body without this the request data will not be read
+// It provides four Express Middlewares for parsing JSON, Text, URL-encoded and raw data sent over HTTP request body
+// before target controller receives an incoming request, these middlewares routines handls it
+// It allows to access req.body from within routes and use the data
 app.use(bodyParser.json());
+
+
+// Cookie parser used to get cookie data
+// to get cookie data use req.cookie prooperty
+// req.cookies Object is sent by the request inJSON after parsing
 app.use(cookieParser());
 app.use(cors());
 
