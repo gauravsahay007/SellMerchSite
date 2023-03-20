@@ -55,6 +55,7 @@ User.findByIdAndUpdate(
     {_id: req.profile._id},
     {$set: req.body},
     
+    // FindAndModify() method depricated so need to det it as false
     { new: true, useFindAndModify: false },
     (err,user)=>{
         if(err){
