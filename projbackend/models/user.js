@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const crypto = require('crypto');
 const uuidv1= require('uuidv1');
-
+mongoose.set('strictQuery', true); 
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
@@ -52,10 +52,7 @@ var userSchema = new Schema({
 // Custom methods
  userSchema.methods= {
 
-    authenticate: function(plainpassword){
-        return this.securePassword(plainpassword) === this.encry_password
-    },
-
+   
     securePassword: function(plainpassword){
         if(!plainpassword) return "";
 
@@ -64,7 +61,11 @@ var userSchema = new Schema({
         } catch(err){
             
         }
-    }
+    },
+    authenticate: function(plainpassword){
+      return this.securePassword(plainpassword) === this.encry_password
+  }
+
  }
 
  // creating virtual field to store password

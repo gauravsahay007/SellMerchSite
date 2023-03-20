@@ -1,12 +1,15 @@
 //creating user controller logic
 //import model of user from model folder
 const Category=require("../models/category")
+
+
+
 //middleware which fetch category data from the database through id
-//it has access of request by object (req), response by object(res) and a callback funtion next( ) to call next function in the iterator
+//it has access of request by object (req), response by object(res) and a callback funtion next() to call next function in the iterator
 //it uses id as a parameter
 exports.getCategoryById=(req,res,next,id)=>{
     //findById(id) is a method with parameter id and callback function to handle error or to do something with the document after it has been returned
-    Category.findById(id).then((err,category)=>{
+    Category.findById(id).then((category,err)=>{
         //check if there is an error then return the json status 400
         //The 400 Bad request status code indicates that the server was unable to process the request due to invalid information sent by the client
         if(err){
@@ -15,7 +18,7 @@ exports.getCategoryById=(req,res,next,id)=>{
             })
         }
         //otherwise return the desired category
-        req.profile=category;
+        req.category=category;
         next();
     })
 }
@@ -42,5 +45,44 @@ exports.createCategory=(req,res)=>{
 //getCategory function returns the category this function is contained within
 exports.getCategory=(req,res)=>{
     //return the json response of the category for which the object has requested
-    return res.json(req.cate);
+   
+    return res.json(req.category);
+}
+
+// TODO: remove() depricated dont know how to remove now
+exports.removeCategory=(req,res)=>{
+    const category = req.profile;
+    category.deleteOne();
+    
+}
+
+// update category method
+exports.updateCategory=(req,res)=> {
+    const category = req.category;
+    category.name = req.body.name;
+
+    category.save().then((updatedCategory,err)=>{
+        if (err){
+            res.status(400).json({
+                error: "Failed to update Category"
+            });
+        }
+
+        res.json(updatedCategory);
+    })
+}
+
+// get all categories
+exports.getAllcategory = (req,res) => {
+    
+    Category.find().then((categories,err)=>{
+        if(err){
+            return res.status(400).json({
+                error: "No categories found"
+            });
+        }
+
+        res.json(categories);
+    })
+    
 }
