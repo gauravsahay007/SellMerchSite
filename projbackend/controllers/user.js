@@ -13,7 +13,7 @@ const User=require("../models/user");
 //check if there is any error or it's not the existing userId else return a json response
 //The 400 Bad request status code indicates that the server was unable to process the request due to invalid information sent by the client.    
 exports.getUserById=(req,res,next,id)=>{
-User.findById(id).exec((err,user)=>{
+User.findById(id).then((user,err)=>{
 if(err || !user){
     return res.status(400).json({
         error:"Oops...There is not any user of this id in the database"

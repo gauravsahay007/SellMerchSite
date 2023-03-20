@@ -6,7 +6,7 @@ const Category=require("../models/category")
 //it uses id as a parameter
 exports.getCategoryById=(req,res,next,id)=>{
     //findById(id) is a method with parameter id and callback function to handle error or to do something with the document after it has been returned
-    Category.findById(id).exec((err,category)=>{
+    Category.findById(id).then((err,category)=>{
         //check if there is an error then return the json status 400
         //The 400 Bad request status code indicates that the server was unable to process the request due to invalid information sent by the client
         if(err){
@@ -28,7 +28,7 @@ exports.createCategory=(req,res)=>{
     const category=new Category(req.body);
     //save function saves the newly created document to the database
     //this call back function has error and new category as parameters
-    category.save((err,cate)=>{
+    category.save().then((cate,err)=>{
         //check if there is any error then return the error status
         if(err){
             return res.status(400).json({
