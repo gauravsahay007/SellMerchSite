@@ -72,7 +72,7 @@ exports.signup = (req,res) =>{
 
         //  projection - specifies the list of fields to be displayed in the returned document. 
 
-        User.findOne({email}, (err,user) => {
+        User.findOne({email}).then((user,err)=> {
             if(err){
                 res.status(400).json({
                     error: "User email doesnot exists"
