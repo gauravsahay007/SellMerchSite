@@ -1,10 +1,9 @@
 
-//importing userSchema model for authorization
-const User=require("../models/user")
-const {check,validationResult}=require("express-validator");
-
 // Importing user model
 const User = require("../models/user");
+var jwt = require("jsonwebtoken")
+
+const { expressjwt: expressJwt } = require("express-jwt")
 
 // express-validator contains chain of custom middlewares for validation of a thing if it is validated validationResult extracts the valiation errors of an express request
 // check-> creates a valiation chain for one or more fields
@@ -16,15 +15,12 @@ const {check, validationResult} = require("express-validator");
 
 exports.signup = (req,res) =>{
 
-    // extracting errors if any
-    const errors = validationResult(req);
+    const errors =validationResult(req);
 
-    // .isEmpty() return true if a string is empty
     if(!errors.isEmpty()){
-        // The HyperText Transfer Protocol (HTTP) 422 Unprocessable Content response status code indicates that the server understands the content type of the request entity, and the syntax of the request entity is correct, but it was unable to process the contained instructions
-        return res.status(422).json({
-            error: errors.array()[0].msg
-        })
+      return res.status(422).json({
+        error : errors.array()[0].msg
+      });
     }
 
     // else
@@ -33,7 +29,7 @@ exports.signup = (req,res) =>{
    const user = new User(req.body);
 
   // .save is a way to save changes we made to a document to a DATABASE it return a call back with a error object and the user object itself
-   user.save((err,user) => {
+  user.save().then((user,err) => {
 
     // if there is error or no user
     if(err || !user){
@@ -42,7 +38,7 @@ exports.signup = (req,res) =>{
             err: "Not able to save user in DATABASE"
         })
     }
-
+  
     // otherwise give a json response
     res.json({
         name: user.name,
@@ -95,6 +91,10 @@ exports.signup = (req,res) =>{
             // JWT specifies a compact and self contained method for communicating information as a JSON object between two parties
             // It can be signed using SECRET
 
+            // In authentication, when the user successfully logs in using their credentials, a JSON webtoken will be returned, Since tokens are credentials (in the below case the credential is user.id) great care must be taken to prevent security issue,
+            // Whenever the user wants to access a protected route or resource the user agent should send a JWT, in "Authorisation header" usinf the bearer schema
+            // Bearer <token> method sets a number of requirementss to keep authorization secure eg requiring the use of HTTPS
+
             // Create a JWT TOKEN
             // here {_id: user._id} is Payload which can be string/object/Buffer  and process.env.SECRET is the secret key to encrypt
             const token = jwt.sign({_id: user._id},process.env.SECRET)
@@ -112,3 +112,22 @@ exports.signup = (req,res) =>{
         })
     }
 
+    // PROTECTED Routes
+    // As token in created with the help of JWT package(jsonwebtoken), Now JWT is created with the help of jwt.sign() method in which we have to pass the credentials(user._Id in this case) and a SECRET from which our token will be created
+    
+    // Here token will be created using id attribute as we habe passed id in jwt.sign() method
+    // If we had passed user.email in the jwt.sign() method token would have been created based on user.email
+    exports.isSignedIn = expressJwt({
+        // Now in expressJwt first we pass the same SECRET we used to create the token
+        // secret: jwt.Secret | GetVerificationKey (required): The secret as a string or a function to "retrieve" the secret.
+        secret: process.env.SECRET,
+        algorithms: ["HS256"],
+        // requestProperty?: string (optional): Name of the property in the request object where the payload is set. Default to req.auth
+        userProperty: "auth"
+
+        // expressJwt automatically verifies the token
+    })
+
+
+    
+    
