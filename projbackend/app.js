@@ -5,8 +5,6 @@ require('dotenv').config()
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
-
-
 mongoose.connect(process.env.DATABASE,{
 }).then(()=>{
     console.log("DB Connected")
