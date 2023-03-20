@@ -1,14 +1,10 @@
 //creating user controller logic
 //import model of user from model folder
 const User=require("../models/user");
-// getUserById() fetches the user object from the database 
-// based on the user's id
-// It's a method which requires the parameter userId which 
-// provides the user information if it maps to the auth.user.id
-// It is a middleware that have access to request object(req)
-// repspond object(res) and call next function(next)
-// id is the parameter passed 
-//all the documents are unique with an unique (_id) field path that MongoDB uses to automatically create a new document.
+// getUserById() fetches the user object from the database based on the user's id
+// It's a method which requires the parameter userId which provides the user information if it maps to the auth.user.id
+// It is a middleware that have access to request object(req) repspond object(res) and call next function(next)
+// id is the parameter passed ;all the documents are unique with an unique (_id) field path that MongoDB uses to automatically create a new document.
 //It uses the method findById() to find a document with an unique Id
 //syntax:- model.findById(id)
 //model:-collection name to find document that match that specified Id

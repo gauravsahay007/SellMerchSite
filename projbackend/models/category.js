@@ -7,7 +7,7 @@ const {ObjectId} = mongoose.Schema;
 const categorySchema=new mongoose.Schema(
     {
         name:{
-            type:string,
+            type:String,
             trim:true,
             required:true,
             maxlength:32,
@@ -15,6 +15,7 @@ const categorySchema=new mongoose.Schema(
         },
 
         subcategory:{
+           
             type: ObjectId,
             // Populating subcategory to use subcategory with category
             ref: "subCategory"
