@@ -8,7 +8,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-
+mongoose.set('strictQuery', true);
 // Parsers 
 
 // npm module bodyparser is an npm module used to process data sent in an HTTP request body without this the request data will not be read
@@ -28,12 +28,14 @@ app.use(cors());
 const authRoutes = require("./routes/auth");
 const categoryRoutes=require("./routes/category");
 const userRoutes=require("./routes/user");
+const productRoutes=require("./routes/product");
 // my routes
 app.use("/api", authRoutes);
 app.use("/api",categoryRoutes);
 app.use("/api",userRoutes);
-mongoose.connect(process.env.DATABASE,{
-}).then(()=>{
+app.use("/api",productRoutes);
+mongoose.connect(process.env.DATABASE,{   
+}).then(()=>{   
     console.log("DB Connected")
 })
 
