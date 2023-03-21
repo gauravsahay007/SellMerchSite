@@ -1,16 +1,13 @@
-const mongoose=require("mongoose");
-const subCategorySchema=new mongoose.Schema(
-    {
-        name:{
-            type:string,
-            unique:true,
-            trim:true,
-            maxlength:32,
-            required:true
-        }
-    },
-    {
-        timestamps:true
-    }
-)
-module.export=mongoose.model("subCategory",subCategorySchema);
+const mongoose = require("mongoose");
+
+const subcategorySchema = new mongoose.Schema({
+  name: {
+    type: String,
+    minlength: 5,
+    maxlength: 255
+  }
+},{timestamps:true});
+
+const Subcategory = mongoose.model("Subcategory", subcategorySchema);
+
+module.exports = Subcategory;

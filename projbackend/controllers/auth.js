@@ -99,7 +99,7 @@ exports.signup = (req,res) =>{
             // here {_id: user._id} is Payload which can be string/object/Buffer  and process.env.SECRET is the secret key to encrypt
             const token = jwt.sign({_id: user._id},process.env.SECRET)
 
-            // put token in cookie
+            // put token in cookie 
             
             res.cookie("token",token,{expire: new Date()+9999})
 
@@ -111,7 +111,7 @@ exports.signup = (req,res) =>{
             })
         })
     }
-
+  
     // PROTECTED Routes
     // As token in created with the help of JWT package(jsonwebtoken), Now JWT is created with the help of jwt.sign() method in which we have to pass the credentials(user._Id in this case) and a SECRET from which our token will be created
     
@@ -159,4 +159,4 @@ exports.signup = (req,res) =>{
     };
 
 
-    
+  

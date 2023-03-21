@@ -14,12 +14,10 @@ const categorySchema=new mongoose.Schema(
             unique:true
         },
 
-        subcategory:{
-           
-            type: ObjectId,
-            // Populating subcategory to use subcategory with category
-            ref: "subCategory"
-         }
+        subcategory:
+        {type:Array,
+           default:[] 
+        }
     },
     {timestamps:true}
 );

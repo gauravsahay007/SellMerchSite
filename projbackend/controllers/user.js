@@ -1,6 +1,7 @@
 //creating user controller logic
 //import model of user from model folder
 const User=require("../models/user");
+const {Order} = require("../models/order");
 // getUserById() fetches the user object from the database based on the user's id
 // It's a method which requires the parameter userId which provides the user information if it maps to the auth.user.id
 // It is a middleware that have access to request object(req) repspond object(res) and call next function(next)
@@ -11,9 +12,11 @@ const User=require("../models/user");
 //id:- unique id of document we wish to find
 //callback:- the method findById() can also execute a callback function to handle an error or do something with the document after it has been returned.
 //check if there is any error or it's not the existing userId else return a json response
-//The 400 Bad request status code indicates that the server was unable to process the request due to invalid information sent by the client.    
+//The 400 Bad request status code indicates that the server was unable to process the request due to invalid information sent by the client.
+
+
 exports.getUserById=(req,res,next,id)=>{
-User.findById(id).exec((err,user)=>{
+User.findById(id).then((user,err)=>{
 if(err || !user){
     return res.status(400).json({
         error:"Oops...There is not any user of this id in the database"
@@ -51,7 +54,7 @@ User.findByIdAndUpdate(
     {_id: req.profile._id},
     {$set: req.body},
     
-    // FindAndModify() method depricated so need to det it as false
+    // FindAndModify() method depricated so need to set it as false
     { new: true, useFindAndModify: false },
     (err,user)=>{
         if(err){
@@ -66,3 +69,60 @@ User.findByIdAndUpdate(
     }
 );  
 };
+
+// get all users
+exports.getAllusers=(req,res)=>{
+    User.find().then((users,err)=>{
+        if(err){
+            res.status(400).json({
+                error: "No users found"
+            })
+        }
+
+        res.json({
+            users
+        })
+    })
+}
+
+// get user purchase list method
+exports.getUserPurchaseList=(req,res)=>{
+    Order.find({user: req.profile._id}).then((order, err) => {
+        if(err){
+            return res.status(400).json({
+                error: "No Order in this account"
+            })
+        }
+
+        return res.json(order)
+    })
+}
+
+exports.pushOrderInPurchaseList=(req,res)=>{
+    let purchases=[];
+    // from frontend passed list of products
+    req.body.order.products.forEach(product=>{
+        purchases.push({
+            _id: product._id,
+            name: product.name,
+            description: product.description,
+            category: product.category,
+            quantity: product.quantity,
+            amount: req.body.order.amount,
+            transaction_id: req.body.order.transaction_id
+        })
+    })
+
+    User.findOneAndUpdate({_id: req.profile._id},
+        {$push: {purchases: purchases}}),
+        {new:true},
+        (err, purchases) => {
+            if(err){
+                return res.status(400).json({
+                    error: "Unable to save purchase list"
+                })
+            }
+
+            next();
+        }
+}
