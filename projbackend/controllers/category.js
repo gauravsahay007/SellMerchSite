@@ -98,11 +98,10 @@ exports.getAllcategory = (req,res) => {
 
 exports.getAllSubCategory = (req,res) => {
     const category  = req.category;
-    res.json(category.subcategory);
+    res.json(category.subcategory)
 }
 
-exports.putSubcategory = (req,res) =>{
-    
+exports.putSubcategory = (req,res) =>{ 
     const category = req.category;
     const subcategory =new Subcategory(req.body);
     category.subcategory.push({subcategory});
@@ -112,6 +111,6 @@ exports.putSubcategory = (req,res) =>{
 
     category.save()
 
-    res.json({meassage:"done"})
+    res.json({meassage:"done adding the subcategories"})
 
 }
