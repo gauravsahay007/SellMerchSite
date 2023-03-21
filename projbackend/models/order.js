@@ -2,30 +2,26 @@ const mongoose=require("mongoose");
 
 // by default mongoose adds an _id property to the schemas
 // destructuring that id
-const {objectId}=mongoose.Schema
+const {ObjectId}=mongoose.Schema
 
 
 //schema for a item in the cart
-const itemSchema=new mongoose.Schema(
-    {
-        name:String,
-        price:Number,
-        count:Number,
-        product:{
-            type:objectId,
-            //referencing product schema  which contains product name,price, description,photo etc. So every property of product schema can be used with the item
-            ref: "Product"
-        }
+const ProductCartSchema =new mongoose.Schema({
+    product:{
+        type : ObjectId,
+        ref: "Product"
+    },
+    name: String,
+    count: Number,
+    price: Number
+});
 
-    }
-)
-// Modelling item schema
-const item=mongoose.model("Item",itemSchema);
+const ProductCart = mongoose.model("ProductCart", ProductCartSchema);
 
 //schema for order status
 const OrderSchema=new mongoose.Schema(
     {
-        items: [itemSchema],
+        items: [ProductCartSchema],
         transaction_id: {},
         amount: {type: Number},
         address: String,
@@ -34,13 +30,19 @@ const OrderSchema=new mongoose.Schema(
             default: "Recieved",
             // an enum contains list of possible values
             enum: ["Cancelled","Delivered","Shipped","Processing","Recieved"]
+        },
+        updated: Date,
+        user:{
+            type: ObjectId,
+            ref:"User"
         }
        
     },{timestamps:true}
 )
 
 // Modelling OrderSchema
-const order=mongoose.model("Order",orderSchema);
+const Order=mongoose.model("Order",OrderSchema);
+
 
 // Exporting OrderSchema and ItemSchema
-module.exports={Item,Order};
+module.exports={ProductCart,Order};
