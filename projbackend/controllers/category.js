@@ -2,7 +2,7 @@
 //import model of user from model folder
 const Category=require("../models/category")
 
-
+const Subcategory = require("../models/subcategory")
 
 //middleware which fetch category data from the database through id
 //it has access of request by object (req), response by object(res) and a callback funtion next() to call next function in the iterator
@@ -93,6 +93,25 @@ exports.getAllcategory = (req,res) => {
         }
 
         res.json(categories);
-    })
+    })  
+}
+
+exports.getAllSubCategory = (req,res) => {
+    const category  = req.category;
+    res.json(category.subcategory);
+}
+
+exports.putSubcategory = (req,res) =>{
     
+    const category = req.category;
+    const subcategory =new Subcategory(req.body);
+    category.subcategory.push({subcategory});
+    //save function saves the newly created document to the database
+    //this call back function has error and new category as parameters
+    subcategory.save()
+
+    category.save()
+
+    res.json({meassage:"done"})
+
 }
