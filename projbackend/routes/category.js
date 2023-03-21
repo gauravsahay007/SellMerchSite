@@ -27,4 +27,6 @@ router.put("/category/:categoryId/:userId",isSignedIn,isAuthenticated,isAdmin,up
 router.post("/category/:categoryId/:userId/Addsubcategories",isSignedIn,isAuthenticated,isAdmin,putSubcategory)
 module.exports=router;
 
+// get subcategories
+router.get("/category/:categoryId/subcategories",isSignedIn,isAuthenticated,getAllSubCategory)
 

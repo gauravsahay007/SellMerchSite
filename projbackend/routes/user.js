@@ -16,8 +16,11 @@ router.get("/users/:userId",isSignedIn,isAuthenticated,isAdmin,getAllusers)
 // update user
 router.put("/user/:userId",isSignedIn,isAuthenticated,isAdmin,updateUser)
 
-// userPurchase;ist
+// userPurchase list
 router.get("/orders/user/:userId", isSignedIn, isAuthenticated,getUserPurchaseList)
 
 router.put("/orders/user/:userId/addtocart",isSignedIn, isAuthenticated,pushOrderInPurchaseList)
+
+
+
 module.exports=router;
