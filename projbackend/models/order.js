@@ -4,7 +4,6 @@ const mongoose=require("mongoose");
 // destructuring that id
 const {ObjectId}=mongoose.Schema
 
-
 //schema for a item in the cart
 const ProductCartSchema =new mongoose.Schema({
     product:{
