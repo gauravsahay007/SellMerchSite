@@ -145,7 +145,12 @@ exports.updateProduct=(req,res)=>{
             error:"Issue with image to be updated"
         })
       }
+
       let newproduct=req.product;
+    //   _.extend(object, sources)
+    // object: This parameter holds the destination object.
+    // sources: This parameter holds the source objects.
+    // So here fields are copied to newproduct
       newproduct=_.extend(newproduct,fields);
 
       if(file.photo){
@@ -168,6 +173,7 @@ exports.updateProduct=(req,res)=>{
 });
 };
 exports.getAllProducts=(req,res)=>{
+    // whenever a query is fired up a ? is shown in the path a
     let cnt=req.query.limit ? parseInt(req.query.limit):8
     let sort=req.query.sort ? req.query.sort: "_id"
     Product
@@ -194,6 +200,7 @@ exports.updateStock=(req,res,next)=>{
             }
         }
     })
+    //  With bulkWrite() method multiple documents can be inserted/updated/deleted in one shot
     Product.bulkWrite(opern,{},(err,ele)=>{
         if(err){
           return res.status(400).json({
