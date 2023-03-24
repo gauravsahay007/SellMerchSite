@@ -8,7 +8,9 @@ import AdminRoute from "./auth/helper/AdminRoutes";
 import PrivateRoute from "./auth/helper/PrivateRoutes";
 import AddCategory from "./admin/AddCategory";
 import ManageCategories from "./admin/ManageCategory";
-
+import AddProduct from "./admin/AddProduct";
+import ManageProduct from "./admin/ManageProduct";
+import Order from "./admin/order";
 export default function Routers() {
     return (
         <BrowserRouter>
@@ -26,7 +28,9 @@ export default function Routers() {
             <Route path="/admin/create/category" exact element={<AddCategory/>}></Route>
 
             <Route path="/admin/category" exact element={<ManageCategories/>}></Route>
-
+            <Route path="/admin/create/product" exact element={<AddProduct/>}></Route>
+            <Route path="/admin/product" exact element={<ManageProduct/>}></Route>
+            <Route path="/admin/order" exact element={<Order/>}></Route>
 
         </Routes>
         </BrowserRouter>

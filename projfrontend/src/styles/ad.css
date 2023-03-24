@@ -1,0 +1,55 @@
+/* body{
+    background-color: red;
+} */
+.card{
+    
+    display: flex;
+    gap: 90px;
+    margin: 20px;
+    /* justify-items: center; */
+    background-color: rgb(241, 232, 232);
+    box-shadow: 0 0 10px rgb(235, 232, 232);
+    color: black;
+    width: fit-content;
+    padding: 20px;
+    border-radius: 20px;
+    
+}
+.right h3{
+    
+    text-align: center;
+}
+.left h3{
+    text-align: center;
+}
+.right li{
+    list-style: none;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  background-color: red;
+  gap: 10px;
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
+}
+.left li{
+    list-style: none;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  background-color: red;
+  gap: 10px;
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
+}
+.link{
+
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+    color: white;
+}
+hr{
+    border: 1px black solid;
+    
+}
