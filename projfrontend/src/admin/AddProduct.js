@@ -1,11 +1,17 @@
 import React from "react";
+//useState:- react hook that lets you add a state variable to your component
+//syntax:- const [state,setstate]=usestate(initialstate)
+//The convention is to name state variables like [something, setSomething] using array destructuring.
+//React will call your initializer function when initializing the component, and store its return value as the initial state.
+//The set function returned by useState lets you update the state to a different value and trigger a re-render. You can pass the next state directly, or a function that calculates it from the previous state:
+//nextstate=updater function
 import { useState,useEffect } from "react";
 import { isAuthenticated } from "../auth/helper";
 import Base from "../core/Base"
 import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { getAllCategories,createProduct } from "./helper/adminapicalls";
-
+import "../styles/CreateProduct.css"
 const AddProd=()=>{
   //To add a product an user must be authenticated
   const {user,token}=isAuthenticated();
@@ -34,19 +40,30 @@ const AddProd=()=>{
         setValues({...values,error:data.error})
       }
       else{
+       
         setValues({...values,categories:data,formData:new FormData()});
       }
     })
     
   }
+//useeffect is a react hook that lets you synchronize a component with an externa system
+//useEffect(setup,dependencies?)
+//setup code runs when our component is added to the page 
+//
   useEffect(()=>{
 preload();
   },[])
+//handleChange function set a new state for the input
+
   const handleChange=name=>event=>{
+//event.target.files is the entire array of files
     const value=name==="photo" ? event.target.files[0] : event.target.value;
+//set() method of FormData inteface sets a new value for an existing key inside a Formdat Object or adds the key/value if it does not already exist
+//FormData is an interface which provides a way to construct a set of key/value pairs representing form fields and their values
     formData.set(name,value);
-    setValues({...values,[name]:value});
+    setValues({...values,[name]:value,success:true});
   };
+  //On clicking Admin HOme button Link provides a path to go direct home
   const goBack=()=>{
     <Link to="/admin/dashboard">
         <button className='btn'>Admin Home</button>
@@ -60,7 +77,7 @@ preload();
   }
   }
   const errorMessage=()=>{
-    if(error) {
+    if(!success) {
       return (
           <div className="error">Failed to create product!!</div>
       )
@@ -68,6 +85,7 @@ preload();
   }
 
   const onSubmit=event=>{
+//preventDefault() method cancels the event if it is cancelable,means default action that belongs to the event will not occur
    event.preventDefault();
    setValues({...values,error:"",loading:true});
    createProduct(user._id,token,formData)
@@ -163,7 +181,7 @@ preload();
   return(
   
     <Base title="Add a product here!">
-      <Link to="/admin/dashboard" className="link">Admin Home</Link>
+      <Link to="/admin/dashboard" className="links">Admin Home</Link>
       {successMessage()}
       {errorMessage()}
       {productform()}
