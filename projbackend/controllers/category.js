@@ -109,8 +109,8 @@ exports.putSubcategory = (req,res) =>{
     //this call back function has error and new category as parameters
     subcategory.save()
 
-    category.save()
+    category.save()  
 
-    res.json({meassage:"done adding the subcategories"})
+    res.json({meassage:"Done adding the subcategories"})
 
 }

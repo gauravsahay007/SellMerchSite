@@ -164,12 +164,20 @@ exports.updateProduct=(req,res)=>{
             error:"Issue with image to be updated"
         })
       }
+
       let newproduct=req.product;
+
+    //   _.extend(object, sources)
+    // object: This parameter holds the destination object.
+    // sources: This parameter holds the source objects.
+    // So here fields are copied to newproduct
+=======
 //_.extend() function creates a copy of all the properties of the source objects over
 //the destination object and return destination object  
 
 //syntax:- _.extend(destination, *sources)
 //
+
       newproduct=_.extend(newproduct,fields);
 
       if(file.photo){
@@ -191,6 +199,27 @@ exports.updateProduct=(req,res)=>{
     });
 });
 };
+
+exports.getAllProducts=(req,res)=>{
+    // whenever a query is fired up a ? is shown in the path a
+    let cnt=req.query.limit ? parseInt(req.query.limit):8
+    let sort=req.query.sort ? req.query.sort: "_id"
+    Product
+    .find()
+    .select("-photo")
+    .populate("category")
+    .sort([[sort,"asc"]])
+    .limit(cnt)
+    .exec((err,prod)=>{
+        if(err){
+            return res.status(400).json({
+                error: "No product found"
+            })
+        }
+        res.json(prod)
+    })
+}
+
 // exports.getAllProducts=(req,res)=>{
 //     let cnt=req.query.limit ? parseInt(req.query.limit):8
 //     let sort=req.query.sort ? req.query.sort: "_id"
@@ -209,6 +238,7 @@ exports.updateProduct=(req,res)=>{
 //         res.json(prod)
 //     })
 // }
+
 exports.updateStock=(req,res,next)=>{
 //map() applies a function to each array element and creates a new array of the returned values.
     let opern=req.body.order.products.map(ele=>{
@@ -220,10 +250,14 @@ exports.updateStock=(req,res,next)=>{
             }
         }
     })
+
+    //  With bulkWrite() method multiple documents can be inserted/updated/deleted in one shot
+
 //model.bulkWrite():-
 //method to perform multiple operations in one command 
 //It can insert multiple documents,can update,replace,delete one or multiple documents
 //syntax:- model.bulkwrite(operation,options,callback)
+
     Product.bulkWrite(opern,{},(err,ele)=>{
         if(err){
           return res.status(400).json({
