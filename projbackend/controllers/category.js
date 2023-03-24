@@ -40,7 +40,7 @@ exports.createCategory=(req,res)=>{
         }
         //otherwise store the created category
         res.json({cate});
-    })
+    }).catch(err =>console.log("Duplicate exists cant create this category"))
 }
 //getCategory function returns the category this function is contained within
 exports.getCategory=(req,res)=>{
@@ -51,18 +51,21 @@ exports.getCategory=(req,res)=>{
 
 
 exports.removeCategory=(req,res)=>{
+   
     const category = req.category;
-    category.remove((err,category) => {
-        if (err){
-            res.status(400).json({
-                error: "Failed to delete this Category"
-            });
-        }
-
-        res.json({
-            message: "Successfully deleted "
-        })
-     })
+    if(category !== null) {
+        category.remove((err,category) => {
+            if (err){
+                res.status(400).json({
+                    error: "Failed to delete this Category"
+                });
+            }
+    
+            res.json({
+                message: "Successfully deleted "
+            })
+         })
+    }
     
 }
 

@@ -34,7 +34,7 @@ export const deleteCategory = (userId,token, categoryId,name) => {
             "Content-Type":"application/josn",
             Authorization: `Bearer ${token}`},
         body:{
-            name:`${name}`
+            name:"Trans"
         }    
     }).then(response=>{
         return response.json()

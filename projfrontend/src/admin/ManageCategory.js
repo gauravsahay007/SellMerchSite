@@ -4,6 +4,7 @@ import Base from '../core/Base'
 import { Link,Navigate } from 'react-router-dom'
 import { isAuthenticated } from '../auth/helper'
 import { deleteCategory, getAllCategories } from './helper/adminapicalls'
+import "../styles/ManageCategory.css"
 
 const ManageAllCategories = () => {
     const [categories, setCategories] = useState([])
@@ -23,17 +24,17 @@ const ManageAllCategories = () => {
 
     useEffect(()=>{
         autoload()
-    },[])
-    console.log(categories)
-    console.log(user)
+    },[categories])
+   
     return (
         <Base title='Categories' description='List of categories'>
             <div className="grid-collection">
                 {categories.map((category,index)=>{
                     return (
-                        <div key={index}>
-                           
-                            <div className="cols">
+                        <div key={index} className="row">
+
+                        <div className="container">
+                        <div className="name">
                                <h1> {category.name}</h1>
                             </div>
 
@@ -41,13 +42,12 @@ const ManageAllCategories = () => {
                                 <Link to={`/admin/product/update/${category._id}`}></Link>
 
                                 <button className='update-btn'>Update</button>
-                            </div>
-
-                            <div className="cols">
+                           
                                <Link to={`/admin/product/update/${category._id}`}></Link>
 
                                 <button className='delete-btn' onClick={()=>deleteCategory(user._id,token,category._id,category.name)}>Delete</button>
-                            </div>
+                            </div></div>   
+                            
                         </div>
                     )
                 })}
