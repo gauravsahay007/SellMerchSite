@@ -171,7 +171,7 @@ exports.updateProduct=(req,res)=>{
     // object: This parameter holds the destination object.
     // sources: This parameter holds the source objects.
     // So here fields are copied to newproduct
-=======
+
 //_.extend() function creates a copy of all the properties of the source objects over
 //the destination object and return destination object  
 
