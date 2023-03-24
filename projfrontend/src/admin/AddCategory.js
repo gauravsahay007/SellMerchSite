@@ -66,8 +66,9 @@ const AddCat = () => {
         <input type="text" onChange={handleChange} 
         className="form-input" value={name} autoFocus required placeholder='For eg Mens, Women'/>
 
-        </div> 
-        <button onClick={onSubmit}>Submit</button>
+        </div>
+        <button className='submit' onClick={onSubmit}>Submit</button>
+        {/* <button className='back' onClick={goBack}>Admin Home</button>  */}
     </form>
  
     )

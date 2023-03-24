@@ -38,7 +38,7 @@ const AdminDashboard=()=> {
     <Base title="Admin Dashboard" description=''>
       <div>
       <div>{left()}</div>
-      {/* <div>{right()}</div> */}
+     
       </div>
     </Base>
     
