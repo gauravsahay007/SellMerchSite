@@ -97,16 +97,28 @@ exports.createProduct=(req,res)=>{
 //getProduct() function returns a Promise that is resolved when all of the information about the product shown on the ProductPage is retrieved.
 exports.getProduct=(req,res)=>{
     req.product.photo=undefined;
+//res.json():-sends a response (with the correct content-type) that is the parameter converted to a JSON string using the JSON.stringify() method
     return res.json(req.product);
 }
 exports.getAllProducts=(req,res)=>{
+//JavaScript parseInt() Method is used to accept the string and radix parameter and convert it into an integer
+//The limit query parameter specifies the number of resources that a single response page contains.
+//req.query property is an object containing the property for each query string parameter in the route
     let cnt=req.query.limit ? parseInt(req.query.limit):8
     let sort=req.query.sort ? req.query.sort: "_id"
+
     Product.find()
+//select() is a method of Mongoose that is used to select document fields that are to be returned in the query result
     .select("-photo")
+//populate() , which lets you reference documents in other collections. 
     .populate("category")
+// sort() method specifies the order in which the query returns the matching documents from the given collection  
+ //It takes a document as a parameter that contains a field
+ //"asc":-command to sort in ascending
+ //using limit()with sort() will sort the list till cnt provided
     .sort([[sort,"asc"]])
     .limit(cnt)
+//executing
     .exec((err,prod)=>{
         if(err){
             return res.status(400).json({
@@ -116,15 +128,21 @@ exports.getAllProducts=(req,res)=>{
         res.json(prod)
     })
 }
+
 exports.photo=(req,res,next)=>{
+    //check if the data of the photo exist then set the content type as 
+    //the content type of product photo data through res.set
    if(req.product.photo.data){
+
      res.set("Content-Type",req.product.photo.contentType);
      return res.send(req.product.photo.data);
    }
    next();
 }
+//deletion of an existing product
 exports.deleteProduct=(req,res)=>{
     let prod=req.product;
+//The remove() function is used to remove the documents from the database according to the condition
     prod.remove((err,product)=>{
         if(err){
             return res.status(400).json({
@@ -135,7 +153,8 @@ exports.deleteProduct=(req,res)=>{
             message:"Deleted successfully",product
         });
     });
-};
+}//product updatio
+//functions same as create product
 exports.updateProduct=(req,res)=>{
     let newform=new formidable.IncomingForm();
     newform.keepExtensions=true;
@@ -147,10 +166,18 @@ exports.updateProduct=(req,res)=>{
       }
 
       let newproduct=req.product;
+
     //   _.extend(object, sources)
     // object: This parameter holds the destination object.
     // sources: This parameter holds the source objects.
     // So here fields are copied to newproduct
+=======
+//_.extend() function creates a copy of all the properties of the source objects over
+//the destination object and return destination object  
+
+//syntax:- _.extend(destination, *sources)
+//
+
       newproduct=_.extend(newproduct,fields);
 
       if(file.photo){
@@ -172,6 +199,7 @@ exports.updateProduct=(req,res)=>{
     });
 });
 };
+
 exports.getAllProducts=(req,res)=>{
     // whenever a query is fired up a ? is shown in the path a
     let cnt=req.query.limit ? parseInt(req.query.limit):8
@@ -191,16 +219,45 @@ exports.getAllProducts=(req,res)=>{
         res.json(prod)
     })
 }
+
+// exports.getAllProducts=(req,res)=>{
+//     let cnt=req.query.limit ? parseInt(req.query.limit):8
+//     let sort=req.query.sort ? req.query.sort: "_id"
+//     Product
+//     .find()
+//     .select("-photo")
+//     .populate("category")
+//     .sort([[sort,"asc"]])
+//     .limit(cnt)
+//     .exec((err,prod)=>{
+//         if(err){
+//             return res.status(400).json({
+//                 error: "No product found"
+//             })
+//         }
+//         res.json(prod)
+//     })
+// }
+
 exports.updateStock=(req,res,next)=>{
+//map() applies a function to each array element and creates a new array of the returned values.
     let opern=req.body.order.products.map(ele=>{
         return{
+//The updateOne() method returns a document that contains some fields. 
             updateOne:{
                 filter:{_id:ele._id},
                 update:{$inc: {stock:-ele.count,sold: +ele.count}}
             }
         }
     })
+
     //  With bulkWrite() method multiple documents can be inserted/updated/deleted in one shot
+
+//model.bulkWrite():-
+//method to perform multiple operations in one command 
+//It can insert multiple documents,can update,replace,delete one or multiple documents
+//syntax:- model.bulkwrite(operation,options,callback)
+
     Product.bulkWrite(opern,{},(err,ele)=>{
         if(err){
           return res.status(400).json({
@@ -211,6 +268,8 @@ exports.updateStock=(req,res,next)=>{
     })
 }
 exports.getAllUniquecategories=(req,res)=>{
+//distinct() method finds the distinct values for a given field across a single collection and returns the results in an array
+
     Product.distinct("category",{},(err,cate)=>{
         if(err){
             return res.status(400).json({
