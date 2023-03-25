@@ -12,6 +12,7 @@ const ManageAllCategories = () => {
 
     const {user, token} = isAuthenticated();
 
+    
     const autoload = () => {
         getAllCategories().then(data=>{
             if(data.error){

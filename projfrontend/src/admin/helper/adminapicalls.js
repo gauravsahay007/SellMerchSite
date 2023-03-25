@@ -68,6 +68,7 @@ export const getCategory = (categoryId) => {
 }
 
 // PRODUCT CALLS
+
  
 export const createProduct = (userId,token,product) => {
     return fetch(`${API}/product/create/${userId}`,{
@@ -81,6 +82,7 @@ export const createProduct = (userId,token,product) => {
     }).then(response => (
         response.json() )).catch(err => console.log(err))
 }
+
 
 export const getAllProducts = () => {
     return fetch(`${API}/products`,{
