@@ -23,6 +23,7 @@ const ManageAllProduct=()=>{
  useEffect(()=>{
     preload();
  },[]);
+ 
  const deleteThisProduct=productId=>{
     deleteProduct(productId,user._id,token)
     .then(data=>{
@@ -43,29 +44,34 @@ const ManageAllProduct=()=>{
             <div className="grid-collection">
                 {products.map((prod,index)=>{
                     return (
-                        
-                        <div key={index} className="row">
+                        <div key={index}  className="product">
+                             <div className="row">
                           
+                          <div className="image-container">
+                          <Imagehelper prod={prod}/>
+                          <div className="name">
+                                <h1> {prod.name}</h1>
+                        
+                             </div>
+                          </div>
+                         <div className="container">
+ 
                          
-                        <div className="container">
-
-                        <Imagehelper prod={prod}/>
-                        <div className="name">
-                               <h1> {prod.name}</h1>
-                       
-                            </div>
-
-                            <div className="cols">
-                                <Link to={`/admin/product/update/${prod._id}`}></Link>
-
-                                <button className='update-btn'>Update</button>
-                           
-                               <Link to={`/admin/product/update/${prod._id}`}></Link>
-
-                                <button className='delete-btn' onClick={()=>deleteThisProduct(user._id,token,prod._id,prod.name)}>Delete</button>
-                            </div></div>   
+                         
+ 
+                             <div className="cols">
+                                 <Link to={`/admin/product/update/${prod._id}`}></Link>
+ 
+                                 <button className='update-btn'>Update</button>
                             
+                                <Link to={`/admin/product/update/${prod._id}`}></Link>
+ 
+                                 <button className='delete-btn' onClick={()=>deleteThisProduct(user._id,token,prod._id,prod.name)}>Delete</button>
+                             </div></div>   
+                             
+                         </div>
                         </div>
+                       
                     )
                 })}
             </div>

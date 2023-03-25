@@ -139,7 +139,7 @@ exports.photo = (req, res, next) => {
   };
 //deletion of an existing product
 exports.deleteProduct=(req,res)=>{
-    let prod=req.product;
+    const prod=req.product;
 //The remove() function is used to remove the documents from the database according to the condition
     prod.remove((err,product)=>{
         if(err){
@@ -148,7 +148,8 @@ exports.deleteProduct=(req,res)=>{
             })
         }
         res.json({
-            message:"Deleted successfully",product
+            message:"Deleted successfully",
+            product
         });
     });
 }//product updatio
