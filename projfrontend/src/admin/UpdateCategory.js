@@ -19,7 +19,6 @@ const UpdateCategoryF = () => {
     })
 
     const {name, subcategory,error,loading} = values;
-
  
     const preload = categoryId => {
         
@@ -46,12 +45,21 @@ const UpdateCategoryF = () => {
     
     setValues({...values, error:"",loading: true})
     console.log(token)
-    updateCategory(token,routerparams.categoryId,user._id,"")
+    updateCategory(token,routerparams.categoryId,user._id,{ name: values.name,
+      subcategory: values.subcategory})
    }
 
    const handleChange = name => event => {
-    setValues({...values, [name]: event.target.value})
+    if(name=="subcategory"){
+        setValues({...values, subcategory: [...subcategory,event.target.value]})
+    }
+    else{
+        setValues({...values, [name]: event.target.value})
+    }
+   
    }
+
+ 
     const updateValuesForm = () => {
         return   ( <div className="main">
         <form>
@@ -63,6 +71,16 @@ const UpdateCategoryF = () => {
        <input type="text" onChange={handleChange("name")} className="form-input" value={name}/>
 
        </div> 
+
+       <div className="form-group"> 
+       <label className='label-form'>
+           Subcategories
+       </label>
+       
+       <input type="text"  onChange={handleChange("subcategory")}  className="form-input" />
+
+       </div> 
+       
        <button onClick={onSubmit}>Submit</button>
    </form>
 

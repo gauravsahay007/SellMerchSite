@@ -43,7 +43,7 @@ export const deleteCategory = (userId,token, categoryId,name) => {
 
 export const updateCategory = (token,categoryId,userId,content) => {
     
-    console.log(content);
+   
     return fetch(`${API}/category/${categoryId}/${userId}`,{
         method: "PUT",
         headers:{
@@ -51,7 +51,8 @@ export const updateCategory = (token,categoryId,userId,content) => {
             "Content-Type":"application/json",
             Authorization: `Bearer ${token}`
         },
-        body:{} 
+        // here body accepts only string so we have to convert the content object to string by JSON.stringify
+        body:JSON.stringify(content) 
     }).then(response => {return response.json()}).catch(err => console.log(err))
 
 }
