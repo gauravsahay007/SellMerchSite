@@ -15,6 +15,7 @@ const {Order} = require("../models/order");
 //The 400 Bad request status code indicates that the server was unable to process the request due to invalid information sent by the client.
 
 
+
 exports.getUserById=(req,res,next,id)=>{
 User.findById(id).then((user,err)=>{
 if(err || !user){
