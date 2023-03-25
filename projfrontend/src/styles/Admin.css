@@ -4,9 +4,7 @@
 .card{
     
     display: flex;
-    gap: 90px;
-    margin: 20px;
-    /* justify-items: center; */
+    margin: auto;
     background-color: rgb(241, 232, 232);
     box-shadow: 0 0 10px rgb(235, 232, 232);
     color: black;
@@ -15,6 +13,11 @@
     border-radius: 20px;
     
 }
+
+.left{
+    width: 400px;
+}
+
 .right h3{
     
     text-align: center;
@@ -36,11 +39,12 @@
     list-style: none;
   justify-content: space-between;
   margin-bottom: 20px;
-  background-color: red;
+  background-color: rgb(255, 0, 0);
   gap: 10px;
   color: white;
   padding: 20px;
   border-radius: 20px;
+  width: 200px;
 }
 .link{
 
@@ -48,6 +52,7 @@
     font-size: 15px;
     color: black;
     color: white;
+    
 }
 hr{
     border: 1px black solid;

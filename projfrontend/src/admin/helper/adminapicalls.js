@@ -34,15 +34,41 @@ export const deleteCategory = (userId,token, categoryId,name) => {
             "Content-Type":"application/josn",
             Authorization: `Bearer ${token}`},
         body:{
-            name:"Trans"
+            name:`${name}`
         }    
     }).then(response=>{
         return response.json()
     }).catch(err=>console.log(err))
 }
 
+export const updateCategory = (token,categoryId,userId,content) => {
+    
+   
+    return fetch(`${API}/category/${categoryId}/${userId}`,{
+        method: "PUT",
+        headers:{
+            Accept: "application/json",
+            "Content-Type":"application/json",
+            Authorization: `Bearer ${token}`
+        },
+        // here body accepts only string so we have to convert the content object to string by JSON.stringify
+        body:JSON.stringify(content) 
+    }).then(response => {return response.json()}).catch(err => console.log(err))
+
+}
+
+export const getCategory = (categoryId) => {
+    return fetch(`${API}/category/${categoryId}`,{
+        method: "GET",
+        headers: {
+            Accept : "application/json",
+            "Content-Type": "application/json"
+        }
+    }).then(res => res.json()).catch(err => console.log(err))
+}
 
 // PRODUCT CALLS
+<<<<<<< HEAD
 //  var responseClone;
 export const createProduct = (userId, token, product) => {
     return fetch(`${API}/product/create/${userId}`, {
@@ -60,6 +86,21 @@ export const createProduct = (userId, token, product) => {
       })
       .catch(err => console.log(err));
   };
+=======
+ 
+export const createProduct = (userId,token,product) => {
+    return fetch(`${API}/product/create/${userId}`,{
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+        },
+        // product name is passes as string only
+        body: JSON.stringify(product)
+    }).then(response => response.json()).catch(err => console.log(err))
+}
+>>>>>>> 3da95c39202e5cb76f0f538182a6e0ec8f939a3e
 
 export const getAllProducts = () => {
     return fetch(`${API}/products`,{
@@ -97,7 +138,7 @@ export const updateProduct = (productId, userId, token, product) => {
             Accept: "application/json",
             Authorization: `Bearer ${token}`
         },
-        body: product
+        body: JSON.stringify(product)
     }).then(response =>{
         return response.json()
     }).catch(err => console.log(err))
