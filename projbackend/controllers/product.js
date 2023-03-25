@@ -53,6 +53,7 @@ exports.createProduct=(req,res)=>{
                 error: "There is an issue with attached image"
             })
         }
+
         
         //otherwise destructure the field parameter in the callback function of parse function 
         const {name,description,stock,price,category}=fields;

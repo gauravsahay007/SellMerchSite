@@ -23,6 +23,7 @@ const AddCat = () => {
         setName(event.target.value)
     }
 
+ 
     const onSubmit = event => {
         event.preventDefault()
         setError("")

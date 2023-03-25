@@ -107,7 +107,7 @@ preload();
       });
     }
    });
-  };
+}
   const productform=()=>{
    return(
     <form>
@@ -187,6 +187,8 @@ preload();
       {errorMessage()}
       {productform()}
       {goBack()}
+     
+     
     </Base>
     
   )
