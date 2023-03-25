@@ -11,6 +11,7 @@ import ManageCategories from "./admin/ManageCategory";
 import AddProduct from "./admin/AddProduct";
 import ManageProduct from "./admin/ManageProduct";
 import Order from "./admin/order";
+import UpdateCategory from "./admin/UpdateCategory";
 export default function Routers() {
     return (
         <BrowserRouter>
@@ -31,6 +32,8 @@ export default function Routers() {
             <Route path="/admin/create/product" exact element={<AddProduct/>}></Route>
             <Route path="/admin/product" exact element={<ManageProduct/>}></Route>
             <Route path="/admin/order" exact element={<Order/>}></Route>
+
+            <Route path="/admin/category/:categoryId" exact element={<UpdateCategory/>}></Route>
 
         </Routes>
         </BrowserRouter>

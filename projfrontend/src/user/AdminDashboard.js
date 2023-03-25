@@ -2,7 +2,9 @@ import React from 'react'
 import { isAuthenticated } from '../auth/helper'
 import Base from '../core/Base'
 import { Link } from 'react-router-dom'
-import "../styles/ad.css"
+import "../styles/Admin.css"
+
+
 const AdminDashboard=()=> {
   const {user:{name,email,role}}=isAuthenticated();
   const left=()=>{

@@ -73,6 +73,7 @@ exports.removeCategory=(req,res)=>{
 exports.updateCategory=(req,res)=> {
     const category = req.category;
     category.name = req.body.name;
+    category.subcategory=req.body.subcategory;
 
     category.save().then((updatedCategory,err)=>{
         if (err){
@@ -80,10 +81,10 @@ exports.updateCategory=(req,res)=> {
                 error: "Failed to update Category"
             });
         }
-
+         
         res.json(updatedCategory);
-    })
-}
+    }) 
+} 
 
 // get all categories
 exports.getAllcategory = (req,res) => {
@@ -97,7 +98,7 @@ exports.getAllcategory = (req,res) => {
 
         res.json(categories);
     })  
-}
+} 
 
 exports.getAllSubCategory = (req,res) => {
     const category  = req.category;

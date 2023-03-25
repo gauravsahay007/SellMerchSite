@@ -6,6 +6,7 @@ import { isAuthenticated } from '../auth/helper'
 import { deleteCategory, getAllCategories } from './helper/adminapicalls'
 import "../styles/ManageCategory.css"
 
+
 const ManageAllCategories = () => {
     const [categories, setCategories] = useState([])
 
@@ -39,11 +40,11 @@ const ManageAllCategories = () => {
                             </div>
 
                             <div className="cols">
-                                <Link to={`/admin/product/update/${category._id}`}></Link>
+                                <Link to={`/admin/category/${category._id}`}><button className='update-btn'>Update</button></Link>
 
-                                <button className='update-btn'>Update</button>
+                                
                            
-                               <Link to={`/admin/product/update/${category._id}`}></Link>
+                               
 
                                 <button className='delete-btn' onClick={()=>deleteCategory(user._id,token,category._id,category.name)}>Delete</button>
                             </div></div>   
