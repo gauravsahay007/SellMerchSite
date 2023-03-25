@@ -74,6 +74,7 @@ const AddCat = () => {
  
     )
 
+    
     return (
         <Base title='Create a category here'>
             {successMessage()}
