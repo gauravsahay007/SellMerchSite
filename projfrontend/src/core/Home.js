@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Base from './Base'
 import Card from "./Card"
-import { API } from '../Backend'
+import Imagehelper from './helper/Imagehelper'
 import {getAllProducts} from "../admin/helper/adminapicalls"
+import { addItemToCart,loadCart,removeItemFromCart } from './helper/CartHelper'
+import "../styles/home.css"
 export default function Home() {
+
   const [error,setError]=useState(false);
   const [products,setProducts]=useState([]);
-
-
 
   const loadAllProducts=()=>{
     getAllProducts().then(data=>{
@@ -22,20 +23,48 @@ export default function Home() {
   useEffect(()=>{
     loadAllProducts()
   },[])
+
+  const [status,setStatus] = useState("Add");
+ 
+
   return (
     <Base title='Home Page' description='Welcome to merch store'>
-        <div>
-           <h1>All Merch here</h1>
-           <div className="row">
-            {products.map((product,i)=>{
-              return(
-                <div key={i} className="key">
-               <Card product={product}/>
-                </div>
-              )
-            })}
-           </div>
-      </div>
+       <div className="grid-collection-product">
+                {products.map((prod,index)=>{
+                    return (
+                        <div key={index}  className="product">
+                            
+                          
+                          <div className="image-container">
+                          <Imagehelper prod={prod}/>
+                          
+                          </div>
+                         <div className="container">
+                         <div className="name">
+                                <h1> {prod.name}</h1>
+                        
+                             </div>
+
+                             <div className="cols-product">
+                                 
+ 
+                                 <button className='update-btn' onClick={()=>addItemToCart(prod)}  >Add To Cart</button>
+                            
+                              
+                               
+ 
+                             </div>
+          
+                          </div>   
+                             
+                       
+                         
+                        </div>
+                       
+                    )
+                })}
+            </div>
+       
     </Base>
   )
 }

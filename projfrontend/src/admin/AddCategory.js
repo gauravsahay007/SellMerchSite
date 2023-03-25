@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { isAuthenticated } from '../auth/helper'
 import { Link,Navigate } from 'react-router-dom'
 import Base from '../core/Base'
@@ -23,7 +23,17 @@ const AddCat = () => {
         setName(event.target.value)
     }
 
- 
+    const successMessage = () =>{
+        if(success){
+            return (
+                <div className="success">Category Created Successfully!!</div>
+            )
+        }
+    }
+
+    useEffect(()=>{
+        successMessage()
+    },[success])
     const onSubmit = event => {
         event.preventDefault()
         setError("")
@@ -38,17 +48,14 @@ const AddCat = () => {
                 setError("")
                 setSuccess(true)
                 setName("")
+                setTimeout(()=>{
+                    setSuccess(false)
+                },1000)
             }
         })
     }
 
-    const successMessage = () =>{
-        if(success){
-            return (
-                <div className="success">Category Created Successfully!!</div>
-            )
-        }
-    }
+   
 
     const errorMessage = () => {
         if(error) {

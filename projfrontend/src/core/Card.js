@@ -40,7 +40,7 @@ const Card=({prod,
    }
 
    return(
-   <Base title="My Cart" description="Add your products here">
+   
     <div className="card1">
        <div className="title">{cartTitle}</div>
        <div className="bodytext">
@@ -55,7 +55,7 @@ const Card=({prod,
         </div>
        </div>
     </div>
-    </Base>
+    
    
        
   

@@ -18,6 +18,7 @@
     font-family: 'Poppins', sans-serif;
     box-shadow: 0 0 10px rgb(235, 232, 232);
     padding-top: 10px;
+    font-size: 20px;
 }
 
 .signin-form{
@@ -35,7 +36,7 @@
 
 
 
-form-button{
+.form-button{
     
     color: white;
     background-color:#FF3300 ;

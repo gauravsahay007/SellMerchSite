@@ -19,29 +19,37 @@
 }
 
 .image-container{
-    display: flex;
-    flex-direction: column;
+    display: block;
+
+    width: 540px;
     border: 2px solid black;
-    margin: 5px;
-    padding-left: 5px;
-    padding-top: 5px;
-    padding-right: 5px;
+    margin: auto;
+ 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
     
     background-color: #000000;
 }
 
 .product{
     width: fit-content;
-    padding: 20px;
-   background-color: #db7878;
-   height: 850px;
+   
+   background-color: #ffffff;
+   height: fit-content;
     border: 2px solid black;
+    padding: 5px;
+    border-radius: 10px;
     
 }
 
 .grid-collection-product{
     display: grid;
-    grid-template-columns: minmax(10px,0.5fr)  minmax(10px,0.5fr)  minmax(10px,0.5fr); 
+    grid-template-columns: minmax(10px,1fr)  minmax(10px,1fr)  minmax(10px,1fr); 
     row-gap: 20px;
     padding: 20px;
+    background-color: #ffffff;
+    justify-items: center;
+    
+    
 }

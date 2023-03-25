@@ -1,11 +1,50 @@
-.links{
-    color: white;
-    font-weight: 700;
-    margin-bottom: 20px;
+.product-form{
+    width: 350px;
+    box-shadow: 0 0 10px black;
+    border-radius: 10px;
     padding: 20px;
-    /* padding-bottom: 20px; */
+    display: block;
+    margin: auto;
+ 
+    gap: 15px;
+    margin-bottom: 50px;
+
+}
+
+.file-area{
+    width: 300px;
+    
+    font-size: 18px;
+   
+    padding-top: 20px;
+    padding-left: 10px;
+    background-color: #fff;
+   margin-right: 5px;
+}
+.form-control{
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.submit{
+    color: white;
+    background-color:#FF3300 ;
+    border: none;
+    font-size: 1.5em;
+    font-weight: 600;
+    width: 200px;
+    height: 55px;
+   
+    padding: 10px;
+    border-radius: 100px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+
+}
+
+.label-form{
     font-size: 20px;
-    border-radius: 20px;
-    background-color: red;
-    text-decoration: none;
+   
 }
