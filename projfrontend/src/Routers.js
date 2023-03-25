@@ -12,6 +12,7 @@ import AddProduct from "./admin/AddProduct";
 import ManageProduct from "./admin/ManageProduct";
 import Order from "./admin/order";
 import UpdateCategory from "./admin/UpdateCategory";
+import Cart from "./core/Cart";
 import Card from "./core/Card";
 export default function Routers() {
     return (

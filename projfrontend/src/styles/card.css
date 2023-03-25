@@ -8,6 +8,7 @@
     padding: 20px;
     margin-top: 10px;
     border-radius: 20px;
+    background-repeat: no-repeat;
 }
 .btnrow{
 gap: 30px;

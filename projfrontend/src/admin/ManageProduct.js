@@ -5,7 +5,7 @@ import { isAuthenticated } from "../auth/helper";
 import { Navigate } from "react-router-dom";
 import { deleteProduct, getAllProducts } from "./helper/adminapicalls";
 
-import Imagehelper from "../core/helper/Imagehelper";
+import Imagehelper from "../core/helper/ImageHelper";
 const ManageAllProduct=()=>{
  const [products,setProducts]=useState([]);
  const {user,token}=isAuthenticated();

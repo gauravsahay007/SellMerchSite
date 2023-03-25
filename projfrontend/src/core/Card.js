@@ -11,7 +11,7 @@ const Card=({prod,
     setReload=func=>func,
     reload=undefined})=>{
         const [redirect,setRedirect]=useState(false);
-        const [count,setCount]=useState(prod.count);
+        // const [count,setCount]=useState(prod.count);
 
     const AddToCart=()=>{
     addItemToCart(prod,()=>setRedirect(true)
@@ -33,7 +33,7 @@ const Card=({prod,
    }
 
    return(
-    <Base title="MyCart" description="">
+   <Base title="My Cart" description="Add your products here">
     <div className="card1">
        <div className="title">Title</div>
        <div className="bodytext">
@@ -48,8 +48,10 @@ const Card=({prod,
         </div>
        </div>
     </div>
-       
     </Base>
+   
+       
+  
    )     
 }
 export default Card
