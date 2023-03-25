@@ -1,0 +1,45 @@
+.update-btn{
+    background-color: #22CB5C;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    color: white;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.delete-btn{
+    background-color: #EF5354;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    color: white;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.image-container{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    margin: 5px;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+    
+    background-color: #000000;
+}
+
+.product{
+    width: fit-content;
+    padding: 20px;
+    border: 2px solid black;
+    
+}
+
+.grid-collection-product{
+    display: grid;
+    grid-template-columns: minmax(10px,0.5fr)  minmax(10px,0.5fr)  minmax(10px,0.5fr); 
+    row-gap: 20px;
+    padding: 20px;
+}

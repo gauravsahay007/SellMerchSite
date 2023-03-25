@@ -10,12 +10,12 @@ const Menu = () => {
 
     return (
 
-        <div className="container-1"> <img src={logo} className="logo-img" alt=""/>  <div> <header>
+        <div className="container-menu"> <img src={logo} className="logo-img" alt=""/>  <div> <header>
         <div className="logo">
             <img src="./Icons/Logo.svg" alt=""/>
         </div>
         <nav>
-            <ul>
+            <ul className="nav-header">
                 <li className="li-items" ><Link to="/" className="nav-links">Home</Link> </li>
                 
                 <li className="li-items"><Link to="/cart" className="nav-links">Cart</Link></li>
@@ -32,7 +32,7 @@ const Menu = () => {
                 )}
 
                 {isAuthenticated() && (
-                    <Fragment><li className="nav-items"> <span onClick={()=>{
+                    <Fragment><li className="li-items"> <span onClick={()=>{
                        signout(()=>{
                         navigate("/")
                        })

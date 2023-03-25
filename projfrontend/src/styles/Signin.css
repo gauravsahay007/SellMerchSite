@@ -1,16 +1,16 @@
 
 
-.main{
+.signin-box{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 100px;
+    margin: 100px;
     
    
 }
 
-textarea{
+.form-input{
     resize: none;
     border-radius: 20px;
     border: none;
@@ -20,29 +20,22 @@ textarea{
     padding-top: 10px;
 }
 
-form{
+.signin-form{
     width: 350px;
     box-shadow: 0 0 10px black;
     border-radius: 10px;
     padding: 20px;
     display: flex;
     flex-direction: column;
-
+    padding: 50px;
     gap: 15px;
     margin-bottom: 10px;
    
 }
 
-form input{
-    border-radius: 20px;
-    border: none;
-    height: 40px;font-family: 'Poppins', sans-serif;
-    box-shadow: 0 0 10px rgb(235, 232, 232);
-    padding-left: 20px;
-    margin-top: 5px;
-}
 
-form button{
+
+form-button{
     
     color: white;
     background-color:#FF3300 ;
@@ -57,13 +50,10 @@ form button{
 }
 
 
-form div{
+.form-group{
     display: flex;
     font-size: 1.5em;
     flex-direction: column;
+    
 }
 
-form h1{
-    margin: auto;
-    font-size: 2.5em;
-}

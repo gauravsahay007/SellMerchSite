@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { isAuthenticated } from "../auth/helper";
 import { Navigate } from "react-router-dom";
 import { deleteProduct, getAllProducts } from "./helper/adminapicalls";
-
+import "../styles/ManageProduct.css"
 import Imagehelper from "../core/helper/Imagehelper";
 const ManageAllProduct=()=>{
  const [products,setProducts]=useState([]);
@@ -39,7 +39,7 @@ const ManageAllProduct=()=>{
  
  return (
     <Base title='Products' description='List of products'>
-            <div className="grid-collection">
+            <div className="grid-collection-product">
                 {products.map((prod,index)=>{
                     return (
                         <div key={index}  className="product">
@@ -54,10 +54,7 @@ const ManageAllProduct=()=>{
                           </div>
                          <div className="container">
  
-                         
-                         
- 
-                             <div className="cols">
+                         <div className="cols-product">
                                  <Link to={`/admin/product/update/${prod._id}`}></Link>
  
                                  <button className='update-btn'>Update</button>
@@ -65,9 +62,13 @@ const ManageAllProduct=()=>{
                                 <Link to={`/admin/product/update/${prod._id}`}></Link>
  
                                  <button className='delete-btn' onClick={()=>deleteThisProduct(prod._id,user._id,token)}>Delete</button>
-                             </div></div>   
+                             </div>
+                         
+ 
+                          </div>   
                              
                          </div>
+                         
                         </div>
                        
                     )

@@ -1,11 +1,11 @@
 
-header li{
+.li-items{
     list-style: none;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 25px;
     
 }
-header ul{
+.nav-header{
     
     display: flex;
     justify-content: space-between;
@@ -22,9 +22,10 @@ header ul{
     width: 200px;
 }
 
-.container-1{
+.container-menu{
     display: flex;
     justify-content: space-between;
+    padding: 10px;
 }
 
 .nav-links{

@@ -1,60 +1,117 @@
-/* body{
-    background-color: red;
-} */
-.card{
-    
+.admin-panel{
     display: flex;
-    margin: auto;
-    background-color: rgb(241, 232, 232);
-    box-shadow: 0 0 10px rgb(235, 232, 232);
-    color: black;
-    width: fit-content;
-    padding: 20px;
-    border-radius: 20px;
+    
+    gap: 10px;
+    background-color: #ffffff;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 100px;
+    margin-top: 50px;
+}
+
+.left-options{
+   color: white;
+    background-color: #120E43;
+   text-align: center;
+   padding: 50px;
+   width: 40vw;
+   border-radius: 10px;
+   
+}
+
+.left-options li{
+    list-style: none;
+}
+
+
+.left-list li{
+    background-color: #FF3300;
+    margin: 10px;
+    padding: 30px;
+    border-radius: 5px;
+    position: relative;
+    right: 20px;
+
     
 }
 
-.left{
-    width: 400px;
-}
 
-.right h3{
-    
-    text-align: center;
-}
-.left h3{
-    text-align: center;
-}
-.right li{
-    list-style: none;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  background-color: red;
-  gap: 10px;
-  color: white;
-  padding: 20px;
-  border-radius: 20px;
-}
-.left li{
-    list-style: none;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  background-color: rgb(255, 0, 0);
-  gap: 10px;
-  color: white;
-  padding: 20px;
-  border-radius: 20px;
-  width: 200px;
-}
+
 .link{
-
     text-decoration: none;
-    font-size: 15px;
-    color: black;
     color: white;
-    
+    font-size: 20px;
 }
-hr{
-    border: 1px black solid;
-    
+
+.left-head{
+    font-family: 'Poppins', sans-serif;
+    font-size: 35px;
 }
+
+
+.right-head{
+    font-family: 'Poppins', sans-serif;
+    font-size: 35px;
+}
+
+.right-details{
+    display: flex;
+    flex-direction: column;
+     background-color: #120E43;
+     text-align: center;
+     color: white;
+     padding: 50px;
+     width: 40vw;
+     border-radius: 5px;
+     
+ }
+
+ .right-list{
+    list-style: none;
+  
+ }
+
+ 
+
+ .right-list li span{
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    font-size: 20px;
+    width: 100%;
+    align-items: center;
+    
+    position: relative;
+    right: 30px;
+    margin: 10px;
+    padding: 1px;
+    border-radius: 10px;
+    
+ }
+
+ .admin-subdetail-key{
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #F4BE2C;
+    width: fit-content;
+    padding: 10px;
+    
+    border-radius: 5px;
+    margin-left: 20px;
+ }
+
+ .admin-subdetail-value{
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #4DD637;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+ }
+
+ .colon{
+
+   color: black;
+    font-size: 30px;
+ }

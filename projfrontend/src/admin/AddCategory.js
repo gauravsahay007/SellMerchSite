@@ -58,16 +58,16 @@ const AddCat = () => {
     }
 
     const myCategoryForm = () => (
-        <form className='main'>
+        <form className='create-category-form'>
         <div className="form-group">
         <label className='label-form'>
            Enter the Category
         </label>
         <input type="text" onChange={handleChange} 
-        className="form-input" value={name} autoFocus required placeholder='For eg Mens, Women'/>
+        className="form-input-category" value={name} autoFocus required placeholder='For eg Mens, Women'/>
 
         </div>
-        <button className='submit' onClick={onSubmit}>Submit</button>
+        <button className='submit-category' onClick={onSubmit}>Submit</button>
         {/* <button className='back' onClick={goBack}>Admin Home</button>  */}
     </form>
  

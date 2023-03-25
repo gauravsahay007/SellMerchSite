@@ -63,9 +63,9 @@ export default function Signup() {
     }
 
     const signUpForm = () => (
-        <div className="main">
-             <form>
-            <div className="form-group">
+        <div className="signup-form">
+             <form className='sp-form'>
+            <div className="form-group-sp">
             <label className='label-form'>
                 Name
             </label>
@@ -85,7 +85,7 @@ export default function Signup() {
             </label>
             <input type="text" onChange={handleChange("password")} className="form-input" value={password}/>
             </div> 
-            <button onClick={onSubmit}>Submit</button>
+            <button onClick={onSubmit} className="sp-button">Submit</button>
         </form>
 
         </div>
