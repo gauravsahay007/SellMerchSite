@@ -123,3 +123,9 @@ export const updateProduct = (productId, userId, token, product) => {
         return response.json()
     }).catch(err => console.log(err))
 }
+
+export const getPhoto = (productId) => {
+    return fetch(`${API}/product/photo/${productId}`,{
+        method: "GET"
+    }).then(res=>(res)).catch(err=>console.log(err))
+}

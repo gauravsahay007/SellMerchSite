@@ -6,7 +6,7 @@ import "../styles/Admin.css"
 
 
 const AdminDashboard=()=> {
-  const {user:{name,email,role}}=isAuthenticated();
+  const {user:{name,email}}=isAuthenticated();
   const left=()=>{
      return(
       <div className='card'>

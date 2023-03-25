@@ -3,7 +3,9 @@ import Base from "../core/Base";
 import { Link } from "react-router-dom";
 import { isAuthenticated } from "../auth/helper";
 import { Navigate } from "react-router-dom";
-import { deleteProduct, getAllProducts } from "./helper/adminapicalls";
+import { deleteProduct, getAllProducts, getPhoto } from "./helper/adminapicalls";
+import { API } from "../Backend";
+import Imagehelper from "../core/helper/Imagehelper";
 const ManageAllProduct=()=>{
  const [products,setProducts]=useState([]);
  const {user,token}=isAuthenticated();
@@ -32,16 +34,25 @@ const ManageAllProduct=()=>{
         }
     });
  };
+
+ 
+
+ 
  return (
     <Base title='Products' description='List of products'>
             <div className="grid-collection">
                 {products.map((prod,index)=>{
                     return (
+                        
                         <div key={index} className="row">
-
+                          
+                         
                         <div className="container">
+
+                        <Imagehelper prod={prod}/>
                         <div className="name">
                                <h1> {prod.name}</h1>
+                       
                             </div>
 
                             <div className="cols">
@@ -51,7 +62,7 @@ const ManageAllProduct=()=>{
                            
                                <Link to={`/admin/product/update/${prod._id}`}></Link>
 
-                                <button className='delete-btn' onClick={()=>deleteProduct(user._id,token,prod._id,prod.name)}>Delete</button>
+                                <button className='delete-btn' onClick={()=>deleteThisProduct(user._id,token,prod._id,prod.name)}>Delete</button>
                             </div></div>   
                             
                         </div>
@@ -61,6 +72,7 @@ const ManageAllProduct=()=>{
         </Base>
  )
 };
+
 const ManageProduct = () => {
     return ((isAuthenticated() && isAuthenticated().user.role===1) ? ManageAllProduct() : <Navigate to="/"/>)
 }

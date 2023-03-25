@@ -29,7 +29,8 @@ const AddProd=()=>{
     error:"",
     createdProduct:"",
     getaRedirect:false,
-    formData:""
+    formData:"",
+    success: ""
   });
   //destructuring the values 
   const {name,description,price,stock,category,categories,loading,error,createdProduct,getaRedirect,formData}=values;
@@ -105,7 +106,10 @@ preload();
         stock:"",
         loading:false,
         createdProduct:data.name
-      });
+      }
+      )
+
+      setSuccess(true)
     }
    });
    

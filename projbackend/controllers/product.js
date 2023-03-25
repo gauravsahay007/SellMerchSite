@@ -126,20 +126,17 @@ exports.getAllProducts=(req,res)=>{
                 error:"No product found"
             })
         }
-        res.json(prod)
+        return res.json(prod)
     })
 }
 
-exports.photo=(req,res,next)=>{
-    //check if the data of the photo exist then set the content type as 
-    //the content type of product photo data through res.set
-   if(req.product.photo.data){
-
-     res.set("Content-Type",req.product.photo.contentType);
-     return res.send(req.product.photo.data);
-   }
-   next();
-}
+exports.photo = (req, res, next) => {
+    if (req.product.photo) {
+        res.set("Content-Type", "image/png");
+      return res.send(req.product.photo.data);
+    }
+    next();
+  };
 //deletion of an existing product
 exports.deleteProduct=(req,res)=>{
     let prod=req.product;
