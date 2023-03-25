@@ -86,6 +86,7 @@ preload();
 
   const onSubmit=event=>{
 //preventDefault() method cancels the event if it is cancelable,means default action that belongs to the event will not occur
+    console.log("submitted");
    event.preventDefault();
    setValues({...values,error:"",loading:true});
    createProduct(user._id,token,formData)
@@ -107,6 +108,8 @@ preload();
       });
     }
    });
+   
+   
   };
   const productform=()=>{
    return(
