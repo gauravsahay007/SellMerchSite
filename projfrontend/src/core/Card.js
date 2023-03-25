@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 import "../styles/card.css"
 import Base from "./Base";
-import ImageHelper from "./helper/ImageHelper"
+import Imagehelper from "./helper/Imagehelper"
 import {addItemToCart,removeItemFromCart} from "./helper/CartHelper"
 import { Navigate } from "react-router-dom";
 //cart need product, addtocart and remove from cart properties

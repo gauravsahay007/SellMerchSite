@@ -9,11 +9,11 @@ const AdminDashboard=()=> {
   const {user:{name,email}}=isAuthenticated();
   const left=()=>{
      return(
-      <div className='card'>
-        <div className='left'>
-        <h3>Navigation Panel</h3>
-        <hr />
-        <ul className='list'>
+      <div className='admin-panel'>
+        <div className='left-options'>
+        <h3 className='left-head'>Navigation Panel</h3>
+  
+        <ul className='left-list'>
            <li>
             <Link className='link' to="/admin/create/category">Create category</Link>
            </li>
@@ -24,15 +24,18 @@ const AdminDashboard=()=> {
            <li><Link className='link' to="/admin/order">Manage Order</Link></li>
         </ul>
         </div>
-         <div className='right'>
-           <h3>Admin Details</h3>
-           <hr />
-           <ul>
-            <li><span>Name: </span>{name}</li>
-            <li><span>Email: </span>{email}</li>
+
+
+         <div className='right-details'>
+           <h3 className='right-head'>Admin Details</h3>
+          
+           <ul className='right-list'>
+            <li><span> <h1 className='admin-subdetail-key'> Name</h1> <h1 className='colon'>:</h1> <h1 className='admin-subdetail-value'>{name}</h1>  </span></li>
+            <li><span><h1 className='admin-subdetail-key'> Email</h1> <h1 className='colon'>:</h1> <h1 className='admin-subdetail-value'>{email}</h1></span></li>
             
            </ul>
          </div>
+
       </div>
      )
   }

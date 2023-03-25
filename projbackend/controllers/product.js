@@ -184,14 +184,10 @@ exports.updateProduct=(req,res)=>{
         newproduct.photo.data=fs.readFileSync(file.photo.path);
         newproduct.photo.contentType=file.photo.type;
       }
-    newproduct.save((err,prod)=>{
-        if(err){
-            return res.status(400).json({
-                error:"Updation of product failed"
-            })
-        }
+    newproduct.save().then((prod,err)=>{
+       
         res.json(newproduct);
-    });
+    }).catch(err => console.log(err));
 });
 };
 

@@ -3,9 +3,14 @@
 .admin-head{
     display: flex;
     margin-top: 20px;
-    background-color: #faf7f7;
+    background-color: #120E43;
     padding: 20px;
     padding-left: 10px;
+    color: white;
+    margin: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 30px;
  
 
 }

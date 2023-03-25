@@ -77,8 +77,9 @@ export default function Signin() {
     }
 
     const signInForm = () => {
-        return ( <div className="main">
-        <form>
+        return (
+             <div className="signin-box">
+        <form className='signin-form'>
        
        <div className="form-group">
        <label className='label-form'>
@@ -93,7 +94,7 @@ export default function Signin() {
        </label>
        <input type="text" onChange={handleChange("password")} className="form-input" value={password}/>
        </div> 
-       <button onClick={onSubmit}>Submit</button>
+       <button onClick={onSubmit} className="form-button">Submit</button>
    </form>
 
    </div>)
