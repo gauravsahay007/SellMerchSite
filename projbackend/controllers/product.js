@@ -84,7 +84,7 @@ exports.createProduct=(req,res)=>{
         product.photo.contentType=file.photo.type;  
         }
 //saving product to database
-        product.save((err,prod)=>{
+        product.save().then((prod,err)=>{
             if(err){
                return res.status(400).json({
                     error:"Product not saved to the database"
