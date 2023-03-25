@@ -29,7 +29,8 @@ const AddProd=()=>{
     error:"",
     createdProduct:"",
     getaRedirect:false,
-    formData:""
+    formData:"",
+    success: ""
   });
   //destructuring the values 
   const {name,description,price,stock,category,categories,loading,error,createdProduct,getaRedirect,formData}=values;
@@ -86,6 +87,7 @@ preload();
 
   const onSubmit=event=>{
 //preventDefault() method cancels the event if it is cancelable,means default action that belongs to the event will not occur
+    console.log("submitted");
    event.preventDefault();
    setValues({...values,error:"",loading:true});
    createProduct(user._id,token,formData)
@@ -104,10 +106,19 @@ preload();
         stock:"",
         loading:false,
         createdProduct:data.name
-      });
+      }
+      )
+
+      setSuccess(true)
     }
    });
-}
+
+
+
+   
+   
+  };
+
   const productform=()=>{
    return(
     <form>

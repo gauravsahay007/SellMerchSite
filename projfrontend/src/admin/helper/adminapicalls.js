@@ -69,20 +69,18 @@ export const getCategory = (categoryId) => {
 
 // PRODUCT CALLS
 
-//  var responseClone;
-
  
 export const createProduct = (userId,token,product) => {
     return fetch(`${API}/product/create/${userId}`,{
         method: "POST",
         headers: {
             Accept: "application/json",
-            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`
         },
         // product name is passes as string only
-        body: JSON.stringify(product)
-    }).then(response => response.json()).catch(err => console.log(err))
+        body: product
+    }).then(response => (
+        response.json() )).catch(err => console.log(err))
 }
 
 
@@ -95,15 +93,17 @@ export const getAllProducts = () => {
 }
 
 export const deleteProduct = (productId,userId,token) => {
+  
     return fetch(`${API}/product/${productId}/${userId}`,{
         method:"DELETE",
         headers: {
             Accept: "application/json",
+            "Content-Type":"application/json",
             Authorization: `Bearer ${token}`
         }
-    }).then(response => {
-        return response.json()
-    }).catch(err => console.log(err))
+    }).then(response => (
+        response.json()
+    )).catch(err => console.log(err))
 }
 
 export const getProduct = productId => {
@@ -126,4 +126,10 @@ export const updateProduct = (productId, userId, token, product) => {
     }).then(response =>{
         return response.json()
     }).catch(err => console.log(err))
+}
+
+export const getPhoto = (productId) => {
+    return fetch(`${API}/product/photo/${productId}`,{
+        method: "GET"
+    }).then(res=>(res)).catch(err=>console.log(err))
 }
