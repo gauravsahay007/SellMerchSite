@@ -80,10 +80,10 @@ exports.updateCategory=(req,res)=> {
                 error: "Failed to update Category"
             });
         }
-
+     
         res.json(updatedCategory);
-    })
-}
+    }) 
+} 
 
 // get all categories
 exports.getAllcategory = (req,res) => {
@@ -97,7 +97,7 @@ exports.getAllcategory = (req,res) => {
 
         res.json(categories);
     })  
-}
+} 
 
 exports.getAllSubCategory = (req,res) => {
     const category  = req.category;

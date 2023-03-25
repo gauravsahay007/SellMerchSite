@@ -34,13 +34,37 @@ export const deleteCategory = (userId,token, categoryId,name) => {
             "Content-Type":"application/josn",
             Authorization: `Bearer ${token}`},
         body:{
-            name:"Trans"
+            name:`${name}`
         }    
     }).then(response=>{
         return response.json()
     }).catch(err=>console.log(err))
 }
 
+export const updateCategory = (token,categoryId,userId,content) => {
+    
+    console.log(content);
+    return fetch(`${API}/category/${categoryId}/${userId}`,{
+        method: "PUT",
+        headers:{
+            Accept: "application/json",
+            "Content-Type":"application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body:{} 
+    }).then(response => {return response.json()}).catch(err => console.log(err))
+
+}
+
+export const getCategory = (categoryId) => {
+    return fetch(`${API}/category/${categoryId}`,{
+        method: "GET",
+        headers: {
+            Accept : "application/json",
+            "Content-Type": "application/json"
+        }
+    }).then(res => res.json()).catch(err => console.log(err))
+}
 
 // PRODUCT CALLS
  
@@ -49,6 +73,7 @@ export const createProduct = (userId,token,product) => {
         method: "POST",
         headers: {
             Accept: "application/json",
+            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`
         },
         // product name is passes as string only
@@ -92,7 +117,7 @@ export const updateProduct = (productId, userId, token, product) => {
             Accept: "application/json",
             Authorization: `Bearer ${token}`
         },
-        body: product
+        body: JSON.stringify(product)
     }).then(response =>{
         return response.json()
     }).catch(err => console.log(err))
