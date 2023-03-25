@@ -43,18 +43,23 @@ export const deleteCategory = (userId,token, categoryId,name) => {
 
 
 // PRODUCT CALLS
- 
-export const createProduct = (userId,token,product) => {
-    return fetch(`${API}/product/create/${userId}`,{
-        method: "POST",
-        headers: {
-            Accept: "application/json",
-            Authorization: `Bearer ${token}`
-        },
-        // product name is passes as string only
-        body: JSON.stringify(product)
-    }).then(response => response.json()).catch(err => console.log(err))
-}
+//  var responseClone;
+export const createProduct = (userId, token, product) => {
+    return fetch(`${API}/product/create/${userId}`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type":"application.json",
+        Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify(product)
+    })
+      .then(response => {
+        // responseClone=response.clone();
+        return response.json();
+      })
+      .catch(err => console.log(err));
+  };
 
 export const getAllProducts = () => {
     return fetch(`${API}/products`,{

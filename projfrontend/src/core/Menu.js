@@ -11,7 +11,7 @@ const Menu = () => {
     return (
 
         <div className="container-1"> <img src={logo} className="logo-img"/>  <div> <header>
-        <div class="logo">
+        <div className="logo">
             <img src="./Icons/Logo.svg" alt=""/>
         </div>
         <nav>

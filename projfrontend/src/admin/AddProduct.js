@@ -77,7 +77,7 @@ preload();
   }
   }
   const errorMessage=()=>{
-    if(!success) {
+    if(error) {
       return (
           <div className="error">Failed to create product!!</div>
       )
@@ -90,6 +90,7 @@ preload();
    setValues({...values,error:"",loading:true});
    createProduct(user._id,token,formData)
    .then(data=>{
+    console.log(data)
     if(data.error){
       setValues({...values,error:data.error});
     }

@@ -28,7 +28,7 @@ export default function Routers() {
             <Route path="/admin/create/category" exact element={<AddCategory/>}></Route>
 
             <Route path="/admin/category" exact element={<ManageCategories/>}></Route>
-            <Route path="/admin/create/product" exact element={<AddProduct/>}></Route>
+            <Route path="/admin/product/create" exact element={<AddProduct/>}></Route>
             <Route path="/admin/product" exact element={<ManageProduct/>}></Route>
             <Route path="/admin/order" exact element={<Order/>}></Route>
 
