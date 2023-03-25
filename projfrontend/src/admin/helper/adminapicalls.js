@@ -91,10 +91,12 @@ export const getAllProducts = () => {
 }
 
 export const deleteProduct = (productId,userId,token) => {
+  
     return fetch(`${API}/product/${productId}/${userId}`,{
         method:"DELETE",
         headers: {
             Accept: "application/json",
+            "Content-Type":"application/json",
             Authorization: `Bearer ${token}`
         }
     }).then(response => (

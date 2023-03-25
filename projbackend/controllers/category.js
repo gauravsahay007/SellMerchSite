@@ -66,7 +66,7 @@ exports.removeCategory=(req,res)=>{
             })
          })
     }
-    
+     
 }
 
 // update category method

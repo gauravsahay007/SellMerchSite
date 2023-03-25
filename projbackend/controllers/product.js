@@ -141,18 +141,13 @@ exports.photo = (req, res, next) => {
 exports.deleteProduct=(req,res)=>{
     const prod=req.product;
 //The remove() function is used to remove the documents from the database according to the condition
-    prod.remove((err,product)=>{
-        if(err){
-            return res.status(400).json({
-                error:"Failed to delete"
-            })
-        }
+    prod.remove().then((product,err)=>{
         res.json({
             message:"Deleted successfully",
             product
         });
-    });
-}//product updatio
+    }).catch(err=>console.log(err));
+}//product updation
 //functions same as create product
 exports.updateProduct=(req,res)=>{
     let newform=new formidable.IncomingForm();
