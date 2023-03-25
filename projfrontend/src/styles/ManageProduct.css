@@ -33,6 +33,8 @@
 .product{
     width: fit-content;
     padding: 20px;
+   background-color: #db7878;
+   height: 850px;
     border: 2px solid black;
     
 }

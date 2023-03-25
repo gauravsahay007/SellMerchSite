@@ -47,13 +47,13 @@ const ManageAllProduct=()=>{
                           
                           <div className="image-container">
                           <Imagehelper prod={prod}/>
-                          <div className="name">
+                          
+                          </div>
+                         <div className="container">
+                         <div className="name">
                                 <h1> {prod.name}</h1>
                         
                              </div>
-                          </div>
-                         <div className="container">
- 
                          <div className="cols-product">
                                  <Link to={`/admin/product/update/${prod._id}`}></Link>
  
