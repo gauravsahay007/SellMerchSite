@@ -23,6 +23,7 @@ const AddCat = () => {
         setName(event.target.value)
     }
 
+ 
     const onSubmit = event => {
         event.preventDefault()
         setError("")
@@ -73,6 +74,7 @@ const AddCat = () => {
  
     )
 
+    
     return (
         <Base title='Create a category here'>
             {successMessage()}

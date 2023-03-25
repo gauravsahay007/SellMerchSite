@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Base from "../core/Base";
 import { Link } from "react-router-dom";
 import { isAuthenticated } from "../auth/helper";
-import { Navigate } from "react-router-dom";
+import { Navigate,useNavigate } from "react-router-dom";
 import { deleteProduct, getAllProducts } from "./helper/adminapicalls";
 import "../styles/ManageProduct.css"
 import Imagehelper from "../core/helper/Imagehelper";
@@ -36,7 +36,11 @@ const ManageAllProduct=()=>{
         }
     });
  };
- 
+ const navigate=useNavigate();
+ const navigatetoupdate=()=>{
+    navigate('/admin/product/update/${prod._id}');
+ }
+
  return (
     <Base title='Products' description='List of products'>
             <div className="grid-collection-product">
@@ -57,7 +61,7 @@ const ManageAllProduct=()=>{
                          <div className="cols-product">
                                  <Link to={`/admin/product/update/${prod._id}`}></Link>
  
-                                 <button className='update-btn'>Update</button>
+                                 <button className='update-btn' onClick={navigatetoupdate}  >Update</button>
                             
                                 <Link to={`/admin/product/update/${prod._id}`}></Link>
  
