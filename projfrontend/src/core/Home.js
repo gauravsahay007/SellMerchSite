@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Base from './Base'
 import Card from "./Card"
+import { API } from '../Backend'
 import {getAllProducts} from "../admin/helper/adminapicalls"
 export default function Home() {
   const [error,setError]=useState(false);
