@@ -3,8 +3,8 @@ import Base from "../core/Base";
 import { Link } from "react-router-dom";
 import { isAuthenticated } from "../auth/helper";
 import { Navigate } from "react-router-dom";
-import { deleteProduct, getAllProducts, getPhoto } from "./helper/adminapicalls";
-import { API } from "../Backend";
+import { deleteProduct, getAllProducts } from "./helper/adminapicalls";
+
 import Imagehelper from "../core/helper/Imagehelper";
 const ManageAllProduct=()=>{
  const [products,setProducts]=useState([]);
@@ -20,9 +20,10 @@ const ManageAllProduct=()=>{
         }
     })
  }
- useEffect(()=>{
+ useEffect(()=>{ 
     preload();
- },[]);
+ },[products]);
+ 
  
  const deleteThisProduct=productId=>{
     deleteProduct(productId,user._id,token)
@@ -35,9 +36,6 @@ const ManageAllProduct=()=>{
         }
     });
  };
-
- 
-
  
  return (
     <Base title='Products' description='List of products'>
@@ -66,7 +64,7 @@ const ManageAllProduct=()=>{
                             
                                 <Link to={`/admin/product/update/${prod._id}`}></Link>
  
-                                 <button className='delete-btn' onClick={()=>deleteThisProduct(user._id,token,prod._id,prod.name)}>Delete</button>
+                                 <button className='delete-btn' onClick={()=>deleteThisProduct(prod._id,user._id,token)}>Delete</button>
                              </div></div>   
                              
                          </div>
