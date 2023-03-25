@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { Link,useNavigate} from "react-router-dom";
-import {isAuthenticated,signup,signout} from "../auth/helper/index";
+import {isAuthenticated,signout} from "../auth/helper/index";
 import "../styles/Menu.css";
 import logo from '../logo.png'
 
@@ -10,7 +10,7 @@ const Menu = () => {
 
     return (
 
-        <div className="container-1"> <img src={logo} className="logo-img"/>  <div> <header>
+        <div className="container-1"> <img src={logo} className="logo-img" alt=""/>  <div> <header>
         <div className="logo">
             <img src="./Icons/Logo.svg" alt=""/>
         </div>

@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from "react";
 import Base from "../core/Base";
 import { isAuthenticated } from "../auth/helper";
-import { Link, Navigate, useParams } from "react-router-dom";
+import {  Navigate, useParams } from "react-router-dom";
 
 import { updateCategory,getCategory} from "./helper/adminapicalls";
 
@@ -22,8 +22,14 @@ const UpdateCategoryF = () => {
         loading:false
     })
 
+    const [successCreated, setSuccessCreated] = useState(false)
+
+    const [errCreated ,setErrCreated] = useState(false)
+
+   
+
     const {name, subcategory,error,loading} = values;
-    const [canSubmit, setCanSubmit] = useState(false);
+    
       
     const preload = categoryId => {
         
@@ -41,19 +47,36 @@ const UpdateCategoryF = () => {
         })
     }
 
+ 
     useEffect(()=>{
         // console.log(values)
         preload(routerparams.categoryId)
     },[])
 
+    const successMessageCreated=()=>{
+        if(successCreated){
+          return (
+              <div className="success"> Updated Category Successfully!!</div>
+          )
+      }
+      }
+      const errorMessage=()=>{
+        if(errCreated) {
+          return (
+              <div className="error">Failed to update category!!</div>
+          )
+      }
+      }
+
    const onSubmit = event => {
     event.preventDefault();
-   if(canSubmit===true){
+   
     setValues({...values, error:"",loading: true})
     console.log(token)
     updateCategory(token,routerparams.categoryId,user._id,{ name: values.name,
-      subcategory: values.subcategory})
-   }
+      subcategory: values.subcategory}).then(response => (setSuccessCreated(true))).catch(err => (setErrCreated(true)))
+      
+   
     
    }
 
@@ -65,18 +88,22 @@ const UpdateCategoryF = () => {
 
    const AddSub = event => {
     event.preventDefault()
-    setCanSubmit(true)
     setValues({...values, subcategory: [...subcategory,subcategoryText]})
     SetSubcategoryText("");
+    
    }
+
 
     
     const updateValuesForm = () => {
         
         return   ( 
-            <div className="container">
+            <div>
+                {successMessageCreated()}
+                {errorMessage()}
 
-
+<div className="container">
+              
                  <div className="left">
            
             
@@ -95,7 +122,7 @@ const UpdateCategoryF = () => {
         
           <div className="form-group"> 
           <label className='label-form'>
-              Subcategories
+              Add Subcategories
           </label>
           
           
@@ -112,7 +139,7 @@ const UpdateCategoryF = () => {
       </div>
       
       <div className="right">
-            <h1>Subcategory List</h1>
+            <h1>{name} Subcategories</h1>
       <div className="sub">
             { subcategory.map((i,index) =>
                     ( 
@@ -124,6 +151,8 @@ const UpdateCategoryF = () => {
             </div>
 
         </div>
+            </div>
+           
        )
     }
 

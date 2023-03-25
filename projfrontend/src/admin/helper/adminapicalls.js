@@ -97,9 +97,9 @@ export const deleteProduct = (productId,userId,token) => {
             Accept: "application/json",
             Authorization: `Bearer ${token}`
         }
-    }).then(response => {
-        return response.json()
-    }).catch(err => console.log(err))
+    }).then(response => (
+        response.json()
+    )).catch(err => console.log(err))
 }
 
 export const getProduct = productId => {
@@ -122,4 +122,10 @@ export const updateProduct = (productId, userId, token, product) => {
     }).then(response =>{
         return response.json()
     }).catch(err => console.log(err))
+}
+
+export const getPhoto = (productId) => {
+    return fetch(`${API}/product/photo/${productId}`,{
+        method: "GET"
+    }).then(res=>(res)).catch(err=>console.log(err))
 }

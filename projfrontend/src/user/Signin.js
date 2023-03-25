@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import Base from '../core/Base'
-import { Link,Navigate,Location } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import { isAuthenticated,signin,authenticate } from '../auth/helper'
 import Home from '../core/Home'
 import "../styles/Signin.css"
@@ -62,7 +62,7 @@ export default function Signin() {
 
     const performRedirect = (Redirect) => {
         if(Redirect){
-            if(user && user.role == 1){
+            if(user && user.role === 1){
                
                 return <Navigate replace to="/admin/dashboard"></Navigate>
             }
