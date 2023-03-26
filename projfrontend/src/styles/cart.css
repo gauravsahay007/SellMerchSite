@@ -7,6 +7,16 @@
     background-color: #ffffff;
     justify-items: center;
 }
+.link{
+    background-color: rgb(233, 33, 33);
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+}
 
 .delete-btn-cart{
     width: 120px;
@@ -26,3 +36,4 @@
     width: 125px;
     height: 45px;
 }
+

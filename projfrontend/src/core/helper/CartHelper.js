@@ -1,6 +1,5 @@
 
 import React from "react";
-
 export const addItemToCart=(item,next)=>{
 //make a cart array
 let cart=[]
@@ -38,4 +37,11 @@ export const removeItemFromCart=(productId)=>{
     }
     return cart;
     
+}
+//emptying out the cart when the order is successfull
+export const emptyCart=next=>{
+    if(typeof window!==undefined){
+        localStorage.removeItem("cart")
+        next()
+    }
 }

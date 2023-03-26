@@ -10,6 +10,15 @@
     border-radius: 20px;
     background-repeat: no-repeat;
 }
+.homeicon{
+    color:white;
+    width: 30px;
+    height: 30px;
+    float: right;
+    margin-left: 900px;
+    margin-top: 30px;
+    cursor: pointer;
+}
 .btnrow{
 gap: 30px;
 background-color: #fff;

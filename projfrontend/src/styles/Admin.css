@@ -47,7 +47,12 @@
     right: 20px;
     
 }
-
+.right-details{
+    margin-left: 20px;
+}
+/* .homeicon{
+    margin-left: 100px;
+} */
 
 
 .link{
@@ -57,13 +62,15 @@
 }
 
 .left-head{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
     font-size: 35px;
 }
 
 
 .right-head{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
     font-size: 35px;
 }
 
@@ -105,11 +112,11 @@
 
  .admin-subdetail-key{
     font-size: 16px;
-    font-family: 'Poppins', sans-serif;
-    background-color: #F4BE2C;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: navy;
     width: fit-content;
     padding: 10px;
-    
+    color: white;
     border-radius: 5px;
     margin-left: 20px;
  }
@@ -117,9 +124,11 @@
  .admin-subdetail-value{
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
-    background-color: #4DD637;
+    
     width: fit-content;
     padding: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+color: black;
     border-radius: 5px;
  }
 
