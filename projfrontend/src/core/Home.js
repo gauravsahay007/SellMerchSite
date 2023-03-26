@@ -6,7 +6,7 @@ import {getAllProducts} from "../admin/helper/adminapicalls"
 import { addItemToCart,loadCart,removeItemFromCart } from './helper/CartHelper'
 import "../styles/home.css"
 export default function Home() {
-
+  const [success,setSuccess] = useState(false)
   const [error,setError]=useState(false);
   const [products,setProducts]=useState([]);
 
@@ -20,16 +20,42 @@ export default function Home() {
       }
     })
   }
-  useEffect(()=>{
+  useEffect(()=>{ 
     loadAllProducts()
   },[])
 
-  const [status,setStatus] = useState("Add");
+  const successMessage=()=>{
+    if(success){
+      return (
+          <div className="success">Added to cart!!</div>
+      )
+  }
+  }
+  const errorMessage=()=>{
+    if(error) {
+      return (
+          <div className="error">Failed to add to cart!!</div>
+      )
+  }
+  }
+
+  useEffect(()=>{
+    successMessage()
+  },[success])
+
+  useEffect(()=>{
+    errorMessage() 
+  },[error])
+
+  
  
 
   return (
     <Base title='Home Page' description='Welcome to merch store'>
+      {successMessage()}
+      {errorMessage()}
        <div className="grid-collection-product">
+       
                 {products.map((prod,index)=>{
                     return (
                         <div key={index}  className="product">
@@ -48,12 +74,14 @@ export default function Home() {
                              <div className="cols-product">
                                  
  
-                                 <button className='update-btn' onClick={()=>addItemToCart(prod)}  >Add To Cart</button>
-                            
-                              
-                               
- 
-                             </div>
+                                 <button className='update-btn' onClick={()=>addItemToCart(prod,()=>{
+                                  setSuccess(true)
+                                  setInterval(()=>{
+                                    setSuccess(false)
+                                  },2000)
+                                 })}  >Add To Cart</button>
+                                  
+                                </div>
           
                           </div>   
                              

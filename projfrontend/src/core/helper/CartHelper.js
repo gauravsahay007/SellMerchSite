@@ -1,7 +1,7 @@
 
 import React from "react";
 
-export const addItemToCart=(item)=>{
+export const addItemToCart=(item,next)=>{
 //make a cart array
 let cart=[]
 console.log(item);
@@ -12,6 +12,7 @@ if(typeof window!==undefined){
     cart.push({...item,count:1})
     localStorage.setItem("cart",JSON.stringify(cart))
 }
+next();
 }
 
 export const loadCart=()=>{

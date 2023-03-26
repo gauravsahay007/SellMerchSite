@@ -21,14 +21,14 @@
 .image-container{
     display: block;
 
-    width: 540px;
+    width: 340px;
     border: 2px solid black;
     margin: auto;
  
     padding-top: 10px;
     padding-bottom: 10px;
     
-    
+    border-radius: 10px 10px 0 0;
     background-color: #000000;
 }
 
