@@ -1,15 +1,17 @@
-import React, { Fragment } from "react";
+import React, { Fragment ,useState} from "react";
 import { Link,useNavigate} from "react-router-dom";
 import {isAuthenticated,signout} from "../auth/helper/index";
 import "../styles/Menu.css";
 import logo from '../logo.png'
+import { getAllCategories } from "../admin/helper/adminapicalls";
+
 
 
 const Menu = () => {
     const navigate= useNavigate();
-
+    
     return (
-
+        
         <div className="container-menu"> <img src={logo} className="logo-img" alt=""/>  <div> <header>
         <div className="logo">
             <img src="./Icons/Logo.svg" alt=""/>
@@ -32,7 +34,7 @@ const Menu = () => {
                 )}
 
                 {isAuthenticated() && (
-                    <Fragment><li className="li-items"> <span onClick={()=>{
+                    <Fragment><li className="nav-links"> <span onClick={()=>{
                        signout(()=>{
                         navigate("/")
                        })

@@ -2,7 +2,7 @@
     width: 350px;
     box-shadow: 0 0 10px black;
     border-radius: 10px;
-    padding: 20px;
+    padding: 10px;
     display: block;
     margin: auto;
  
@@ -16,14 +16,14 @@
     
     font-size: 18px;
    
-    padding-top: 20px;
+    padding-top: 10px;
     padding-left: 10px;
     background-color: #fff;
    margin-right: 5px;
 }
 .form-control{
     width: 300px;
-    padding: 10px;
+    
     margin: 10px;
 }
 
@@ -34,8 +34,8 @@
     font-size: 1.5em;
     font-weight: 600;
     width: 200px;
-    height: 55px;
-   
+    height: 45px;
+    cursor: pointer;
     padding: 10px;
     border-radius: 100px;
     display: block;

@@ -66,7 +66,7 @@ const ManageAllProduct=()=>{
                             
                                 <Link to={`/admin/product/update/${prod._id}/${user._id}`}></Link>
  
-                                 <button className='delete-btn' onClick={()=>deleteThisProduct(prod._id,user._id,token)}>Delete</button>
+                                 <button className='delete-btn-manage-product' onClick={()=>deleteThisProduct(prod._id,user._id,token)}>Delete</button>
                              </div>
                          
  

@@ -47,7 +47,7 @@ const ManageAllCategories = () => {
                            
                                
 
-                                <button className='delete-btn' onClick={()=>deleteCategory(user._id,token,category._id,category.name)}>Delete</button>
+                                <button className='delete-btn-manage-category' onClick={()=>deleteCategory(user._id,token,category._id,category.name)}>Delete</button>
                             </div></div>   
                             
                         </div>
