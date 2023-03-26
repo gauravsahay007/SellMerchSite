@@ -44,7 +44,7 @@ var userSchema = new Schema({
    purchases : {
     type: Array,
     default: []
-   }
+   },
 
   },{timestamps: true});
 

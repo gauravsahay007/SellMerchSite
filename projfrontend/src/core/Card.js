@@ -40,12 +40,12 @@ const Card=({prod,
    }
 
    return(
-   <Base title="My Cart" description="Add your products here">
+   
     <div className="card1">
        <div className="title">{cartTitle}</div>
        <div className="bodytext">
         {getRedirect(redirect)}
-        <ImageHelper product={prod}/>
+        <Imagehelper product={prod}/>
         <h4 className="carddescription">{cartDescrption}</h4>
         <h3 className="price">Price:-$ {cartPrice}</h3>
         <div className="btnrow">
@@ -55,7 +55,7 @@ const Card=({prod,
         </div>
        </div>
     </div>
-    </Base>
+    
    
        
   

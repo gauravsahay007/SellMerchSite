@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes,Route, BrowserRouter } from "react-router-dom";
+import { Routes,Route, BrowserRouter,useParams } from "react-router-dom";
 
 import Home from "./core/Home";
 import Signup from "./user/Signup";
@@ -14,7 +14,7 @@ import Order from "./admin/order";
 import UpdateCategory from "./admin/UpdateCategory";
 import UpdateProduct from "./admin/UpdateProduct";
 import Cart from "./core/Cart";
-import Card from "./core/Card";
+import Card from "./core/Card"; 
 export default function Routers() {
     return (
         <BrowserRouter>
@@ -37,8 +37,9 @@ export default function Routers() {
             <Route path="/admin/order" exact element={<Order/>}></Route>
 
             <Route path="/admin/category/:categoryId" exact element={<UpdateCategory/>}></Route>
-            <Route path="/admin/product/update/:productId" exact element={<UpdateProduct/>}></Route>
-            <Route path="/cart" exact element={<Card/>}></Route>
+            
+        
+            <Route path="/cart" exact element={<Cart/>}></Route>
 
         </Routes>
         </BrowserRouter>

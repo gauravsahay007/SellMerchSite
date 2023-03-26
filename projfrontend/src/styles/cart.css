@@ -1,0 +1,9 @@
+.grid-collection-cart{
+   
+    display: grid;
+    grid-template-columns: minmax(10px,1fr)  minmax(10px,1fr)  minmax(10px,1fr); 
+    row-gap: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    justify-items: center;
+}

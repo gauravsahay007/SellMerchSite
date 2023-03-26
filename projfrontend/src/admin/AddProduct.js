@@ -1,4 +1,4 @@
-import React from "react";
+
 //useState:- react hook that lets you add a state variable to your component
 //syntax:- const [state,setstate]=usestate(initialstate)
 //The convention is to name state variables like [something, setSomething] using array destructuring.
@@ -30,7 +30,7 @@ const AddProd=()=>{
     createdProduct:"",
     getaRedirect:false,
     formData:"",
-    success: ""
+    
   });
   //destructuring the values 
   const {name,description,price,stock,category,categories,loading,error,createdProduct,getaRedirect,formData}=values;
@@ -85,6 +85,14 @@ preload();
   }
   }
 
+  useEffect(()=>{
+    successMessage()
+  },[success])
+
+  useEffect(()=>{
+    errorMessage() 
+  },[error])
+
   const onSubmit=event=>{
 //preventDefault() method cancels the event if it is cancelable,means default action that belongs to the event will not occur
     console.log("submitted");
@@ -95,6 +103,10 @@ preload();
     console.log(data)
     if(data.error){
       setValues({...values,error:data.error});
+
+      setTimeout(()=>{
+        setValues({...values,error:""})
+      },1000)
     }
     else{
       setValues({
@@ -110,6 +122,9 @@ preload();
       )
 
       setSuccess(true)
+      setTimeout(()=>{
+        setSuccess(false)
+      },1000)
     }
    });
 
@@ -121,46 +136,61 @@ preload();
 
   const productform=()=>{
    return(
-    <form>
-    <span>Post photo</span>
+    <form className="product-form">
+   
     <div className="form-group">
       <label className="label-form">
+        Choose Photo
+      </label>
         <input
           onChange={handleChange("photo")}
           type="file"
           name="photo"
           accept="image"
+          className="file-area"
           placeholder="choose a file"
         />
-      </label>
+     
     </div>
     <div className="form-group">
+    <label className="label-form">
+        Name
+      </label>
       <input
         onChange={handleChange("name")}
         name="photo"
         className="form-control"
-        placeholder="Name"
+       
         value={name}
       />
     </div>
     <div className="form-group">
+    <label className="label-form">
+        Description
+      </label>
       <textarea
         onChange={handleChange("description")}
         name="photo"
         className="form-control"
-        placeholder="Description"
+       
         value={description}
       />
     </div>
+    <label className="label-form">
+        Price
+      </label>
     <div className="form-group">
       <input
         onChange={handleChange("price")}
         type="number"
         className="form-control"
-        placeholder="Price"
+     
         value={price}
       />
     </div>
+    <label className="label-form">
+        Choose Category
+      </label>
     <div className="form-group">
       <select
         onChange={handleChange("category")}
@@ -177,11 +207,14 @@ preload();
       </select>
     </div>
     <div className="form-group">
+    <label className="label-form">
+        Stock
+      </label>
       <input
         onChange={handleChange("stock")}
         type="number"
         className="form-control"
-        placeholder="Stock"
+        
         value={stock}
       />
     </div>

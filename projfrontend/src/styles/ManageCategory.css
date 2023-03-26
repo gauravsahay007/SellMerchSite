@@ -15,7 +15,7 @@
 
 .name{
    
-    width: 500px;
+    width: 300px;
     margin-left: 10px;
 }
 
@@ -28,13 +28,13 @@
 }
  
 .container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    
     border: 2px solid black;
-   
+    width: 300px;
+    display: block;
+    margin: auto;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 0 0 5px 5px;
     background-color: #fff;
 }
 
