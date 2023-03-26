@@ -1,10 +1,10 @@
-import React, { Fragment ,useState} from "react";
+import React, { Fragment } from "react";
 import { Link,useNavigate} from "react-router-dom";
 import {isAuthenticated,signout} from "../auth/helper/index";
 import "../styles/Menu.css";
 import logo from '../logo.png'
-import { getAllCategories } from "../admin/helper/adminapicalls";
 
+import Search from "./Search";
 
 
 const Menu = () => {
@@ -15,9 +15,12 @@ const Menu = () => {
         <div className="container-menu"> <img src={logo} className="logo-img" alt=""/>  <div> <header>
         <div className="logo">
             <img src="./Icons/Logo.svg" alt=""/>
+    
         </div>
+        
         <nav>
             <ul className="nav-header">
+                <li> {Search()}</li>
                 <li className="li-items" ><Link to="/" className="nav-links">Home</Link> </li>
                 
                 <li className="li-items"><Link to="/cart" className="nav-links">Cart</Link></li>
