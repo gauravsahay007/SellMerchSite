@@ -1,0 +1,42 @@
+.SC-F{
+    width: 50vw;
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+.img-s{
+    width: 30px;
+    height: 25px;
+    display: block;
+    
+}
+
+.img-b{
+   
+    border-radius: 100%;
+    border: none;
+    padding: 4px;
+    background-color: #fff;
+}
+
+.search-bar{
+    background-color: #fffefe;
+    display: flex;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    position: relative;
+    bottom: 5px;
+}
+
+.input-s{
+    border: none;
+    padding-left: 5px;
+    margin-right: 3px;
+}
+
+.input-s:focus{
+    outline: none;
+}
+

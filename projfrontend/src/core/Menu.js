@@ -4,18 +4,23 @@ import {isAuthenticated,signout} from "../auth/helper/index";
 import "../styles/Menu.css";
 import logo from '../logo.png'
 
+import Search from "./Search";
+
 
 const Menu = () => {
     const navigate= useNavigate();
-
+    
     return (
-
+        
         <div className="container-menu"> <img src={logo} className="logo-img" alt=""/>  <div> <header>
         <div className="logo">
             <img src="./Icons/Logo.svg" alt=""/>
+    
         </div>
+        
         <nav>
             <ul className="nav-header">
+                <li> {Search()}</li>
                 <li className="li-items" ><Link to="/" className="nav-links">Home</Link> </li>
                 
                 <li className="li-items"><Link to="/cart" className="nav-links">Cart</Link></li>
@@ -32,7 +37,7 @@ const Menu = () => {
                 )}
 
                 {isAuthenticated() && (
-                    <Fragment><li className="li-items"> <span onClick={()=>{
+                    <Fragment><li className="nav-links"> <span onClick={()=>{
                        signout(()=>{
                         navigate("/")
                        })

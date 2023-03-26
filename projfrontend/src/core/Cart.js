@@ -101,7 +101,7 @@ const deleteMessage=()=>{
                           
                                </div>
                                
-                               <button className='delete-btn' onClick={()=>{removeItemFromCart(prod._id) ; setSuccess(true) ;setTimeout(()=>{
+                               <button className='delete-btn-cart' onClick={()=>{removeItemFromCart(prod._id) ; setSuccess(true) ;setTimeout(()=>{
     setSuccess(false)
 },1000) ;setReload(!reload) }}  >Remove item</button>
 
