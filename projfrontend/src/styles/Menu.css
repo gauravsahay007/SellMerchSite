@@ -2,14 +2,14 @@
 .li-items{
     list-style: none;
     cursor: pointer;
-    font-size: 25px;
+    font-size: 20px;
     
 }
 .nav-header{
     
     display: flex;
     justify-content: space-between;
-    gap: 40px;
+    gap: 30px;
     margin: 0px;
     margin-right: 50px;
 }
@@ -31,4 +31,9 @@
 .nav-links{
     text-decoration: none;
     color: black;
+}
+
+.nav-links:hover{
+    background-color: #7f7e7e;
+    padding: 5px;
 }

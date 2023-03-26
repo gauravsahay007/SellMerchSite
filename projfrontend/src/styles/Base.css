@@ -4,7 +4,7 @@
     display: flex;
     margin-top: 20px;
     background-color: #120E43;
-    padding: 20px;
+
     padding-left: 10px;
     color: white;
     margin: 5px;
@@ -15,14 +15,14 @@
 
 }
 .admin-head h2{
-    font-size: 35px;
+    font-size: 30px;
     text-decoration: underline;
 }
 
 .admin-head p{
     font-size: 20px;
     position: relative;
-    top: 27px;
+    top: 16px;
     left: 10px;
 }
 
