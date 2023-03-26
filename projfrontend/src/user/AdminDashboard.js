@@ -13,6 +13,7 @@ const AdminDashboard=()=> {
         <div className='left-options'>
         <h3 className='left-head'>Navigation Panel</h3>
   
+  
         <ul className='left-list'>
            <li>
             <Link className='link' to="/admin/create/category">Create category</Link>

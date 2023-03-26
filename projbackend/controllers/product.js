@@ -188,6 +188,7 @@ exports.updateProduct=(req,res)=>{
        
         res.json(newproduct);
     }).catch(err => console.log(err));
+    
 });
 };
 
