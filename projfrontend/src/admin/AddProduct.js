@@ -29,7 +29,11 @@ const AddProd=()=>{
     error:"",
     createdProduct:"",
     getaRedirect:false,
-    formData:new FormData(),
+
+  
+
+    formData:"",
+
     
   });
   //destructuring the values 

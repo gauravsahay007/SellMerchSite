@@ -47,12 +47,6 @@ const UpdateCategoryF = () => {
         })
     }
 
- 
-    useEffect(()=>{
-        // console.log(values)
-        preload(routerparams.categoryId)
-    },[])
-
     const successMessageCreated=()=>{
         if(successCreated){
           return (
@@ -60,6 +54,16 @@ const UpdateCategoryF = () => {
           )
       }
       }
+    useEffect(()=>{
+        successMessageCreated()
+    },[successCreated])
+ 
+    useEffect(()=>{
+        // console.log(values)
+        preload(routerparams.categoryId)
+    },[])
+
+    
       const errorMessage=()=>{
         if(errCreated) {
           return (
@@ -74,7 +78,12 @@ const UpdateCategoryF = () => {
     setValues({...values, error:"",loading: true})
     console.log(token)
     updateCategory(token,routerparams.categoryId,user._id,{ name: values.name,
-      subcategory: values.subcategory}).then(response => (setSuccessCreated(true))).catch(err => (setErrCreated(true)))
+      subcategory: values.subcategory}).then(response => {
+        setSuccessCreated(true)
+        setTimeout(()=>{
+            setSuccessCreated(false)
+        },1000)
+    }).catch(err => (setErrCreated(true)))
       
    
     

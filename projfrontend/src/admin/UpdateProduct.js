@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { isAuthenticated } from "../auth/helper";
 import Base from "../core/Base";
@@ -215,3 +216,4 @@ if(error){
 //   return ((isAuthenticated() && isAuthenticated().user.role===1) ? UpdateProd() : <Navigate to="/"/>)
 // }
 export default UpdateProduct
+

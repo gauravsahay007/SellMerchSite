@@ -1,34 +1,20 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import Card from "./Card"
 import Base from "./Base";
-import { loadCart } from "./helper/CartHelper";
-
+import { loadCart ,removeItemFromCart} from "./helper/CartHelper";
+import Imagehelper from "./helper/Imagehelper";
+import "../styles/cart.css"
 const Cart=()=>{
 const [products ,setProducts]=useState([])
 const [reload,setReload]=useState(false)
-useEffect=(()=>{
+const [success, setSuccess] =useState(false)
+
+useEffect(()=>{
 setProducts(loadCart());
 },[reload])
 
-const loadAllProducts=()=>{
-return(
-    <div>
-        {products.map((prod,i)=>{
 
-        <Card
-        key={i}
-        product={prod}
-        removeCart={true}
-        addCart={false}
-        setReload={setReload}
-        reload={reload}
-        
-        />
-        })}
-
-    </div>
-)
-}
+   
 const loadCheckOut=()=>{
 return(
     <div>
@@ -37,14 +23,59 @@ return(
 )
 }
 
+const deleteMessage=()=>{
+    if(success){
+      return (
+          <div className="error"> Removed item!!</div>
+      )
+  }
+  }
+
+  useEffect(()=>{
+    deleteMessage()
+  },[success])
+
 
     return(
         <Base title="My Cart" description="Ready to checkout">
-        <div className="rowcard">
-          <div className="col">{loadAllProducts()}</div>
-          <div className="col">{loadCheckOut()}</div>
-          
-        </div>
+            {deleteMessage()}
+          <div className="grid-collection-cart">
+          {products.map((prod,index)=>{
+                    return (
+                        <div key={index} >
+                            
+                            <div   className="cart-product">
+                            
+                          
+                            <div className="image-container">
+                            <Imagehelper prod={prod}/>
+                            
+                            </div>
+                           <div className="container">
+                           <div className="name">
+                                  <h1> {prod.name}</h1>
+                          
+                               </div>
+                               
+                               <button className='delete-btn' onClick={()=>{removeItemFromCart(prod._id) ; setSuccess(true) ;setTimeout(()=>{
+    setSuccess(false)
+},1000) ;setReload(!reload) }}  >Remove item</button>
+  
+            
+                            </div>   
+                               
+                         
+                           
+                          </div>
+                        
+                        </div>
+                        
+                       
+                    )
+                })}
+         
+          </div>
+       
       </Base> 
     )
 }

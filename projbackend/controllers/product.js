@@ -184,11 +184,11 @@ exports.updateProduct=(req,res)=>{
         newproduct.photo.data=fs.readFileSync(file.photo.path);
         newproduct.photo.contentType=file.photo.type;
       }
-    // newproduct.save().then((prod,err)=>{
+    newproduct.save().then((prod,err)=>{
        
-    //     res.json(newproduct);
-    // }).catch(err => console.log(err));
-    newproduct.save().then(response=> response.json()).catch(err=>console.log(err))
+        res.json(newproduct);
+    }).catch(err => console.log(err));
+    
 });
 };
 
