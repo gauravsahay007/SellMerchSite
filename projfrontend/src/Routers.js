@@ -37,9 +37,8 @@ export default function Routers() {
             <Route path="/admin/order" exact element={<Order/>}></Route>
 
             <Route path="/admin/category/:categoryId" exact element={<UpdateCategory/>}></Route>
-            <Route path="/admin/product/update/:productId" exact element={<UpdateProduct/>}></Route>
+            <Route path="/admin/product/update/:productId/:userId" exact element={<UpdateProduct/>}></Route>
             <Route path="/cart" exact element={<Card/>}></Route>
-
         </Routes>
         </BrowserRouter>
     )

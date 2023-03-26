@@ -56,6 +56,19 @@ export const updateCategory = (token,categoryId,userId,content) => {
     }).then(response => {return response.json()}).catch(err => console.log(err))
 
 }
+export const updateProduct = (productId, userId, token, product) => {
+    return fetch(`${API}/product/update/${productId}/${userId}`,{
+        method: "PUT",
+        headers: {
+            Accept: "application/json",
+            "Content-Type":"application.json",
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(product)
+    }).then(response =>{
+        return response.json()
+    }).catch(err => console.log(err))
+}
 
 export const getCategory = (categoryId) => {
     return fetch(`${API}/category/${categoryId}`,{
@@ -115,18 +128,7 @@ export const getProduct = productId => {
 }
 
 
-export const updateProduct = (productId, userId, token, product) => {
-    return fetch(`${API}/product/${productId}/${userId}`,{
-        method: "PUT",
-        headers: {
-            Accept: "application/json",
-            Authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify(product)
-    }).then(response =>{
-        return response.json()
-    }).catch(err => console.log(err))
-}
+
 
 export const getPhoto = (productId) => {
     return fetch(`${API}/product/photo/${productId}`,{

@@ -23,7 +23,7 @@ const ManageAllProduct=()=>{
  useEffect(()=>{ 
     preload();
  },[products]);
- 
+
  
  const deleteThisProduct=productId=>{
     deleteProduct(productId,user._id,token)
@@ -38,7 +38,7 @@ const ManageAllProduct=()=>{
  };
  const navigate=useNavigate();
  const navigatetoupdate=()=>{
-    navigate('/admin/product/update/${prod._id}');
+    navigate('/admin/product/update/${prod._id}/${user._id}');
  }
 
  return (
@@ -59,11 +59,12 @@ const ManageAllProduct=()=>{
                         
                              </div>
                          <div className="cols-product">
-                                 <Link to={`/admin/product/update/${prod._id}`}></Link>
- 
-                                 <button className='update-btn' onClick={navigatetoupdate}  >Update</button>
+                                 {/* <Link to={`/admin/product/update/${prod._id}/${user._id}`}><button  className='update-btn' onClick={navigatetoupdate}  >Update</button></Link> */}
+                                 <Link to={`/admin/product/update/${prod._id}/${user._id}`}><button className='update-btn'>Update</button></Link>
+
+                                 {/* <button  className='update-btn' onClick={navigatetoupdate}  >Update</button> */}
                             
-                                <Link to={`/admin/product/update/${prod._id}`}></Link>
+                                <Link to={`/admin/product/update/${prod._id}/${user._id}`}></Link>
  
                                  <button className='delete-btn' onClick={()=>deleteThisProduct(prod._id,user._id,token)}>Delete</button>
                              </div>
