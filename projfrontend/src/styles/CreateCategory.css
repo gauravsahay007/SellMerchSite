@@ -63,6 +63,7 @@ form input{
     height: 50px;
     margin: auto;
     padding: 10px;
+    cursor: pointer;
     border-radius: 100px;
 }
 

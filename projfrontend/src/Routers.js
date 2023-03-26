@@ -15,6 +15,9 @@ import UpdateCategory from "./admin/UpdateCategory";
 import UpdateProduct from "./admin/UpdateProduct";
 import Cart from "./core/Cart";
 import Card from "./core/Card"; 
+import FindByCategory from "./core/FindByCategory";
+import Search from "./core/Search";
+
 export default function Routers() {
     return (
         <BrowserRouter>
@@ -45,6 +48,12 @@ export default function Routers() {
         
             <Route path="/cart" exact element={<Cart/>}></Route>
 
+            <Route path="/findByCategory/:categoryId" exact element={<FindByCategory/>}></Route>
+
+            <Route path="/search" exact element={<Search/>}></Route>
+
+            
+ 
 
         </Routes>
         </BrowserRouter>

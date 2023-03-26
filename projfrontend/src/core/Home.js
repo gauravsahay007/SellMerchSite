@@ -74,7 +74,7 @@ export default function Home() {
                              <div className="cols-product">
                                  
  
-                                 <button className='update-btn' onClick={()=>addItemToCart(prod,()=>{
+                                 <button className='update-btn-home' onClick={()=>addItemToCart(prod,()=>{
                                   setSuccess(true)
                                   setInterval(()=>{
                                     setSuccess(false)

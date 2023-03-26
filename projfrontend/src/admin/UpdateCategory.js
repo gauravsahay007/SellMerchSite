@@ -30,23 +30,7 @@ const UpdateCategoryF = () => {
 
     const {name, subcategory,error,loading} = values;
     
-      
-    const preload = categoryId => {
-        
-         getCategory(categoryId).then(data => {
-           
-            if(data.error){
-                setValues({...values,error:data.error})
-            }
-            else{
-                setValues({
-                    ...values, name:data.name,
-                    subcategory: data.subcategory
-                })
-            }
-        })
-    }
-
+   
     const successMessageCreated=()=>{
         if(successCreated){
           return (
@@ -58,6 +42,24 @@ const UpdateCategoryF = () => {
         successMessageCreated()
     },[successCreated])
  
+    
+     //   categoryId from params
+     const preload = categoryId => {
+        
+        getCategory(categoryId).then(data => {
+          
+           if(data.error){
+               setValues({...values,error:data.error})
+           }
+           else{
+               setValues({
+                   ...values, name:data.name,
+                   subcategory: data.subcategory
+               })
+           }
+       })
+   }
+
     useEffect(()=>{
         // console.log(values)
         preload(routerparams.categoryId)
