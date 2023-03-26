@@ -1,0 +1,41 @@
+.links{
+    text-decoration: none;
+}
+
+.viewcart{
+    display: grid;
+    color: white;
+    background-color: #120E43;
+   text-align: center;
+   align-items: center;
+   justify-content: center;
+   padding: 40px;
+   width: 20vw;
+   border-radius: 5px;
+   margin-right: 20px;
+  
+
+}
+.photo{
+    align-items: center;
+}
+.buttonicon{
+    display: grid;
+  
+    gap: 20px;
+    
+}
+.panel{
+
+    display: flex;
+    justify-content: space-between;
+}
+.cartbutton{
+    margin-top: 0;
+    width: fit-content;
+    cursor: pointer;
+    height: 30px;
+    align-items: center;
+    color: Black;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
