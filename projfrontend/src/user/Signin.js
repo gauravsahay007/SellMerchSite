@@ -6,8 +6,8 @@ import Home from '../core/Home'
 import "../styles/Signin.css"
 export default function Signin() {
     const [values, setValues] = useState({
-        email: "gaurav@gmail.com",
-        password: "12345",
+        email: "",
+        password: "",
         error: "",
         loading:false,
         Redirect:false

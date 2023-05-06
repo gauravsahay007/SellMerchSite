@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Base from './Base'
 import Card from "./Card"
-
 import Imagehelper from './helper/Imagehelper'
 import {getAllProducts} from "../admin/helper/adminapicalls"
 import { addItemToCart,loadCart,removeItemFromCart } from './helper/CartHelper'

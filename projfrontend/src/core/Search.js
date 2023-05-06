@@ -7,7 +7,6 @@ export default function Search() {
     const navigate = useNavigate();
     const [values, setValues] = useState([])
 
-    
     const preload = () => {
         getAllCategories().then(data=>{
             if(data.error){

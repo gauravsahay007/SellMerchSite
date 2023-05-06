@@ -1,32 +1,82 @@
-.product-form{
-    width: 350px;
-    box-shadow: 0 0 10px black;
-    border-radius: 10px;
+@media (max-width: 900px) {
+    .product-form{
+        
+        width: 250px;
+        box-shadow: 0 0 10px black;
+        border-radius: 10px;
+        padding: 10px;
+        display: block;
+        margin: auto;
+        margin-top: 30px;
+     
+        gap: 15px;
+        margin-bottom: 50px;
+    
+    }
+    .file-area{
+        width: 220px;
+        
+        font-size: 12px;
+       
+        padding-top: 10px;
+        padding-left: 10px;
+        background-color: #fff;
+       margin-right: 5px;
+    }
+    .form-control{
+        width: 200px;
+        font-size: 12px;
+        margin: 10px;
+    }
+    
+.submit{
+    color: white;
+    background-color:#FF3300 ;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
     padding: 10px;
+    border-radius: 100px;
     display: block;
     margin: auto;
- 
-    gap: 15px;
-    margin-bottom: 50px;
+    margin-top: 10px;
 
 }
+  }
 
-.file-area{
-    width: 300px;
+  @media (min-width: 900px) {
+    .product-form{
+
+        width: 350px;
+        box-shadow: 0 0 10px black;
+        border-radius: 10px;
+        padding: 10px;
+        display: block;
+        margin: auto;
+      margin-top: 30px;
+        gap: 15px;
+        margin-bottom: 50px;
     
-    font-size: 18px;
-   
-    padding-top: 10px;
-    padding-left: 10px;
-    background-color: #fff;
-   margin-right: 5px;
-}
-.form-control{
-    width: 300px;
+    }
+    .file-area{
+        width: 300px;
+        
+        font-size: 18px;
+       
+        padding-top: 10px;
+        padding-left: 10px;
+        background-color: #fff;
+       margin-right: 5px;
+    }
+    .form-control{
+        width: 300px;
+        
+        margin: 10px;
+    }
     
-    margin: 10px;
-}
-
 .submit{
     color: white;
     background-color:#FF3300 ;
@@ -43,6 +93,16 @@
     margin-top: 10px;
 
 }
+    
+  }
+
+
+
+
+
+
+
+
 
 .label-form{
     font-size: 20px;

@@ -1,13 +1,150 @@
-.admin-panel{
-    display: flex;
+
+@media (max-width: 900px) {
+
+    .admin-panel{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 10px;
+        background-color: #ffffff;
+        margin-left: 100px;
+        margin-right: 50px;
+        margin-bottom: 100px;
+        margin-top: 50px;
+        
+    }
+
+    .admin-subdetail-key{
+        display: block;
+        margin: auto;
+        font-size: 10px;
+        font-family: 'Poppins', sans-serif;
+        background-color: #F4BE2C;
+        width: fit-content;
+        padding: 10px;
+        
+        border-radius: 5px;
+        
+     }
+     .left-head{
+        font-family: 'Poppins', sans-serif;
+        font-size: 15px;
+        text-decoration: underline;
+    }
     
-    gap: 10px;
-    background-color: #ffffff;
-    margin-left: 100px;
-    margin-right: 50px;
-    margin-bottom: 100px;
-    margin-top: 50px;
-}
+    
+    .right-head{
+        font-family: 'Poppins', sans-serif;
+        font-size: 15px;
+        text-decoration: underline;
+    }
+    
+    
+     .admin-subdetail-value{
+        display: block;
+        margin: auto;
+        font-size: 10px;
+        font-family: 'Poppins', sans-serif;
+        background-color: #4DD637;
+        padding: 10px;
+        border-radius: 5px;
+     }
+
+     .detail{
+      
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+     }
+     .colon{
+        display: none;
+     }
+     .left-list li{
+        background-color: #FF3300;
+        margin: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        position: relative;
+        right: 20px;
+        cursor: pointer;
+        font-size: 0px;
+    
+        
+    }
+    .link{
+        text-decoration: none;
+        color: white;
+        font-size: 10px;
+    }
+    
+  }
+
+  @media (min-width: 900px) {
+    .admin-panel{
+        display: flex;
+        
+        gap: 10px;
+        background-color: #ffffff;
+        margin-left: 100px;
+        margin-right: 50px;
+        margin-bottom: 100px;
+        margin-top: 50px;
+    }
+    .link{
+        text-decoration: none;
+        color: white;
+        font-size: 15px;
+    }
+    
+
+    .admin-subdetail-key{
+        font-size: 16px;
+        font-family: 'Poppins', sans-serif;
+        background-color: #F4BE2C;
+        width: fit-content;
+        padding: 10px;
+        
+        border-radius: 5px;
+        margin-left: 20px;
+     }
+    
+     .admin-subdetail-value{
+        font-size: 16px;
+        font-family: 'Poppins', sans-serif;
+        background-color: #4DD637;
+        width: fit-content;
+        padding: 10px;
+        border-radius: 5px;
+     }
+     .left-head{
+        font-family: 'Poppins', sans-serif;
+        font-size: 35px;
+    }
+    
+    
+    .right-head{
+        font-family: 'Poppins', sans-serif;
+        font-size: 35px;
+    }
+
+    .left-list li{
+        background-color: #FF3300;
+        margin: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        position: relative;
+        right: 20px;
+        cursor: pointer;
+    
+        
+    }
+    
+    
+    
+  }
+
+
 
 .left-options{
    color: white;
@@ -24,17 +161,7 @@
 }
 
 
-.left-list li{
-    background-color: #FF3300;
-    margin: 20px;
-    padding: 10px;
-    border-radius: 5px;
-    position: relative;
-    right: 20px;
-    cursor: pointer;
 
-    
-}
 
 .left-list li:hover{
     background-color: #22CB5C;
@@ -47,32 +174,10 @@
     right: 20px;
     
 }
-.right-details{
-    margin-left: 20px;
-}
-/* .homeicon{
-    margin-left: 100px;
-} */
 
 
-.link{
-    text-decoration: none;
-    color: white;
-    font-size: 15px;
-}
-
-.left-head{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
-    font-size: 35px;
-}
 
 
-.right-head{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
-    font-size: 35px;
-}
 
 .right-details{
     display: flex;
@@ -110,27 +215,7 @@
     
  }
 
- .admin-subdetail-key{
-    font-size: 16px;
-   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: navy;
-    width: fit-content;
-    padding: 10px;
-    color: white;
-    border-radius: 5px;
-    margin-left: 20px;
- }
 
- .admin-subdetail-value{
-    font-size: 16px;
-    font-family: 'Poppins', sans-serif;
-    
-    width: fit-content;
-    padding: 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-color: black;
-    border-radius: 5px;
- }
 
  .colon{
 

@@ -23,16 +23,14 @@ const Card=({prod,
         return <Navigate to="/cart"/>
     }
    }
-   const showAddToCart=addCart=>{
+   const showAddToCart=()=>{
      return (addCart && (
         <div className="btnrow"><button onClick={()=>{
-          addItemToCart(prod._id)  
-        }} 
-       
-        className="cardbutton">Add</button></div>
+          addItemToCart(prod._id)
+        }} className="cardbutton">Add</button></div>
      ))
    } 
-   const showRemovefromCart=removeCart=>{
+   const showRemovefromCart=()=>{
       return(removeCart && (
         <div className="btnrow"><button onClick={() => {
           removeItemFromCart(prod._id);

@@ -37,7 +37,7 @@ const Menu = () => {
                 )}
 
                 {isAuthenticated() && (
-                    <Fragment><li className="nav-links"> <span onClick={()=>{
+                    <Fragment><li className="li-items"> <span className="nav-links" onClick={()=>{
                        signout(()=>{
                         navigate("/")
                        })

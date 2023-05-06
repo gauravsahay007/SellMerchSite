@@ -31,8 +31,8 @@ const AdminDashboard=()=> {
            <h3 className='right-head'>Admin Details</h3>
           
            <ul className='right-list'>
-            <li><span> <h1 className='admin-subdetail-key'> Name</h1> <h1 className='colon'>:</h1> <h1 className='admin-subdetail-value'>{name}</h1>  </span></li>
-            <li><span><h1 className='admin-subdetail-key'> Email</h1> <h1 className='colon'>:</h1> <h1 className='admin-subdetail-value'>{email}</h1></span></li>
+            <li><span className='detail'> <h1 className='admin-subdetail-key'> Name</h1> <h1 className='colon'>:</h1> <h1 className='admin-subdetail-value'>{name}</h1>  </span></li>
+            <li><span  className='detail'><h1 className='admin-subdetail-key'> Email</h1> <h1 className='colon'>:</h1> <h1 className='admin-subdetail-value'>{email}</h1></span></li>
             
            </ul>
          </div>

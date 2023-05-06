@@ -11,12 +11,7 @@
     justify-content: center;
    
 }
-.container{
-    display: flex;
 
-    font-family: 'Poppins', sans-serif;
-    
-}
 
 .right{
     margin: 20px;
