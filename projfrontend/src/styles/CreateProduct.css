@@ -45,9 +45,16 @@
     margin-top: 10px;
 
 }
+.label-form{
+    font-size: 15px;
+}
   }
 
   @media (min-width: 900px) {
+    .label-form{
+        font-size: 20px;
+       
+    }
     .product-form{
 
         width: 350px;
@@ -104,7 +111,3 @@
 
 
 
-.label-form{
-    font-size: 20px;
-   
-}

@@ -51,6 +51,11 @@
         position: relative;
         bottom: 3px;
     }
+
+    .label-form{
+        font-size: 10px;
+         margin-left: 5px;
+     }
     
   }
 
@@ -106,6 +111,11 @@
         cursor: pointer;
         border-radius: 100px;
     }
+
+    .label-form{
+        font-size: 30px;
+         margin-left: 5px;
+     }
     
     
     
@@ -124,10 +134,7 @@ form div{
     flex-direction: column;
 }
 
-.label-form{
-   font-size: 30px;
-    margin-left: 5px;
-}
+
 
 .success{
     background-color: #6cfc9e;
