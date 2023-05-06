@@ -129,74 +129,91 @@ if(error){
               <div>
                 {/* {successMessage()}
                 {errorMessage()} */}
-             <form>
-            
-             <span>Post photo</span>
-             <div className="form-group">
-               <label className="label-form">
-                 <input
-                   onChange={handleChange("photo")}
-                   type="file"
-                   name="photo"
-                   accept="image"
-                   placeholder="choose a file"
-                 />
-               </label>
-             </div>
-             <div className="form-group">
-               <input
-                 onChange={handleChange("name")}
-                 name="photo"
-                 className="form-control"
-                 placeholder="Name"
-                 value={name}
-               />
-             </div>
-             <div className="form-group">
-               <textarea
-                 onChange={handleChange("description")}
-                 name="photo"
-                 className="form-control"
-                 placeholder="Description"
-                 value={description}
-               />
-             </div>
-             <div className="form-group">
-               <input
-                 onChange={handleChange("price")}
-                 type="number"
-                 className="form-control"
-                 placeholder="Price"
-                 value={price}
-               />
-             </div>
-             <div className="form-group">
-               <select
-                 onChange={handleChange("category")}
-                 className="form-control"
-                 placeholder="Category"
-               >
-                 <option>Select</option>
-                 {categories &&
-                   categories.map((cate, index) => (
-                     <option key={index} value={cate._id}>
-                       {cate.name}
-                     </option>
-                   ))}
-               </select>
-             </div>
-             <div className="form-group">
-               <input
-                 onChange={handleChange("stock")}
-                 type="number"
-                 className="form-control"
-                 placeholder="Stock"
-                 value={stock}
-               />
-             </div>
-             <button className='submit' onClick={onSubmit}>Submit</button>
-         
-         </form>
+             <form className="product-form">
+   
+   <div className="form-group">
+     <label className="label-form">
+       Choose Photo
+     </label>
+       <input
+         onChange={handleChange("photo")}
+         type="file"
+         name="photo"
+         accept="image"
+         className="file-area"
+         placeholder="choose a file"
+       />
+    
+   </div>
+   <div className="form-group">
+   <label className="label-form">
+       Name
+     </label>
+     <input
+       onChange={handleChange("name")}
+       name="photo"
+       className="form-control"
+      
+       value={name}
+     />
+   </div>
+   <div className="form-group">
+   <label className="label-form">
+       Description
+     </label>
+     <textarea
+       onChange={handleChange("description")}
+       name="photo"
+       className="form-control"
+      
+       value={description}
+     />
+   </div>
+   <label className="label-form">
+       Price
+     </label>
+   <div className="form-group">
+     <input
+       onChange={handleChange("price")}
+       type="number"
+       className="form-control"
+    
+       value={price}
+     />
+   </div>
+   <label className="label-form">
+       Choose Category
+     </label>
+   <div className="form-group">
+     <select
+       onChange={handleChange("category")}
+       className="form-control"
+       placeholder="Category"
+     >
+       <option>Select</option>
+       {categories &&
+         categories.map((cate, index) => (
+           <option key={index} value={cate._id}>
+             {cate.name}
+           </option>
+         ))}
+     </select>
+   </div>
+   <div className="form-group">
+   <label className="label-form">
+       Stock
+     </label>
+     <input
+       onChange={handleChange("stock")}
+       type="number"
+       className="form-control"
+       
+       value={stock}
+     />
+   </div>
+   <button className='submit' onClick={onSubmit}>Submit</button>
+
+</form>
          </div>
             )}
     

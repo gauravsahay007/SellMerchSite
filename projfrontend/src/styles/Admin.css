@@ -10,6 +10,7 @@
         margin-right: 50px;
         margin-bottom: 100px;
         margin-top: 50px;
+       
         
     }
 
@@ -152,8 +153,7 @@
    text-align: center;
    padding: 20px;
    width: 40vw;
-   border-radius: 5px;
-   
+   border-radius: 5px;   
 }
 
 .left-options li{
@@ -166,12 +166,12 @@
 .left-list li:hover{
     background-color: #22CB5C;
     cursor: pointer;
-    border: 2px solid black;
-    margin: 20px;
-    padding: 10px;
-    border-radius: 5px;
-    position: relative;
-    right: 20px;
+    text-align: center;
+  
+   border-radius: 5px; 
+    
+   
+    
     
 }
 

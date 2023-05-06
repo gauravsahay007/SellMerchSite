@@ -10,7 +10,7 @@
         height: 120;
         border: 2px solid black;
         margin: auto;
-        margin-right: 5px;
+       
         padding-top: 10px;
         padding-bottom: 10px;
         
@@ -20,7 +20,7 @@
     }
     
     .product{
-        width: 150px;
+        width: 200px;
        
        background-color: #ffffff;
        height: fit-content;
@@ -122,6 +122,12 @@
     font-weight: 600;
     cursor: pointer;
     margin-top: 10px;
+}
+.update-btn:hover{
+    background-color: #22DB5C;
+}
+.delete-btn-manage-product:hover{
+    background-color: #ff6542;
 }
 
 .delete-btn-manage-product{
